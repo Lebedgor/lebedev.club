@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+.env*
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+
+# тяжёлые оригиналы изображений (используются копии в public/images)
+assets/

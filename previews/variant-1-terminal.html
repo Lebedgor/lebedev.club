@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Вариант 1 — Dark Terminal</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0a0e14; --surface: #111721; --border: #1e2733;
+    --text: #e6edf3; --muted: #8b98a8; --accent: #4ade80; --accent2: #38bdf8;
+  }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+  /* grid backdrop */
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 48px 48px; opacity: .18;
+    mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 75%);
+  }
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 40px; border-bottom: 1px solid var(--border); position: relative; z-index: 1;
+  }
+  .logo { color: var(--accent); font-weight: 700; }
+  .logo::before { content: '~/ '; color: var(--muted); }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 28px; font-size: 14px; }
+  nav a:hover { color: var(--accent); }
+  .lang { border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; }
+  main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; position: relative; z-index: 1; }
+  .terminal {
+    width: min(820px, 100%); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 12px;
+    box-shadow: 0 0 60px rgba(74, 222, 128, .06), 0 24px 48px rgba(0,0,0,.5);
+  }
+  .term-bar {
+    display: flex; align-items: center; gap: 8px; padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .r { background: #ff5f57; } .y { background: #febc2e; } .g { background: #28c840; }
+  .term-title { color: var(--muted); font-size: 13px; margin-left: 12px; }
+  .term-body { padding: 32px 36px 40px; font-size: 15px; line-height: 2.1; }
+  .prompt { color: var(--accent); }
+  .cmd { color: var(--text); }
+  .flag { color: var(--accent2); }
+  .cmt { color: var(--muted); }
+  .out { color: var(--text); }
+  h1 { font-size: clamp(28px, 4.5vw, 44px); line-height: 1.25; margin: 8px 0 4px; }
+  .accent { color: var(--accent); }
+  .blink { display: inline-block; width: 10px; height: 1.1em; background: var(--accent); vertical-align: text-bottom; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 28px; }
+  .tag { border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px; font-size: 13px; color: var(--muted); }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+  .actions { display: flex; gap: 16px; }
+  .btn {
+    text-decoration: none; font-size: 14px; padding: 12px 24px; border-radius: 8px;
+    border: 1px solid var(--border); color: var(--text);
+  }
+  .btn.primary { background: var(--accent); color: #052e13; border-color: var(--accent); font-weight: 700; }
+  .btn:hover { border-color: var(--accent); }
+  footer { padding: 18px 40px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; position: relative; z-index: 1; }
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">lebedev.club</span>
+  <div>
+    <a href="#">_проекты</a><a href="#">_опыт</a><a href="#">_контакты</a><a href="#" class="lang">EN</a>
+  </div>
+</nav>
+<main>
+  <div class="terminal">
+    <div class="term-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="term-title">lebedev@club — zsh</span>
+    </div>
+    <div class="term-body">
+      <div><span class="prompt">$</span> <span class="cmd">whoami</span> <span class="flag">--full</span></div>
+      <h1>Лебедев <span class="cmt">//</span> Full Stack <span class="accent">Web Developer</span></h1>
+      <div class="out cmt">от схемы БД и API — до пикселя и анимации.<br>Проектирую, строю и вывожу в прод.</div>
+      <div class="tags">
+        <span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">Node.js</span>
+        <span class="tag">PostgreSQL</span><span class="tag">DevOps</span><span class="tag">+12</span>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="#">./посмотреть-проекты</a>
+        <a class="btn" href="#">связаться</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>$ uptime — 7 лет в разработке · открыт к проектам <span class="blink"></span></footer>
+</body>
+</html>

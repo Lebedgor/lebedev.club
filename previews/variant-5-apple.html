@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Вариант 5 — Apple Style</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #ffffff; --bg2: #f5f5f7; --text: #1d1d1f; --muted: #6e6e73;
+    --link: #0071e3; --border: #d2d2d7;
+  }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased; min-height: 100vh;
+  }
+  nav {
+    display: flex; justify-content: center; gap: 44px; align-items: center;
+    padding: 14px 40px; background: rgba(255,255,255,.8);
+    backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,.08); position: sticky; top: 0; z-index: 2;
+  }
+  nav a { color: rgba(0,0,0,.75); text-decoration: none; font-size: 13.5px; }
+  nav a:hover { color: var(--text); }
+  .logo { font-size: 16px; font-weight: 600; letter-spacing: -.4px; }
+  .lang { color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; }
+  /* Hero */
+  .hero { text-align: center; padding: 110px 24px 90px; background: var(--bg); }
+  .eyebrow { font-size: 15px; font-weight: 600; color: var(--muted); letter-spacing: .5px; text-transform: uppercase; margin-bottom: 14px; }
+  h1 {
+    font-size: clamp(44px, 7.5vw, 96px); font-weight: 700; letter-spacing: -3px; line-height: 1.02;
+  }
+  .hero h1 .thin { font-weight: 500; color: var(--muted); display: block; margin-top: 6px; }
+  .sub { font-size: clamp(18px, 2.2vw, 24px); color: var(--muted); max-width: 640px; margin: 24px auto 0; line-height: 1.45; }
+  .cta-row { display: flex; gap: 22px; justify-content: center; margin-top: 36px; align-items: center; }
+  .pill {
+    text-decoration: none; font-size: 17px; padding: 12px 28px; border-radius: 980px;
+    background: var(--link); color: #fff;
+  }
+  .pill:hover { background: #0077ed; }
+  .link-more { color: var(--link); text-decoration: none; font-size: 17px; }
+  .link-more:hover { text-decoration: underline; }
+  /* Showcase section */
+  .showcase { background: var(--bg2); text-align: center; padding: 110px 24px; }
+  .showcase h2 { font-size: clamp(34px, 5vw, 60px); font-weight: 700; letter-spacing: -1.8px; }
+  .showcase p.sub2 { font-size: 21px; color: var(--muted); max-width: 620px; margin: 18px auto 0; line-height: 1.5; }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1040px; margin: 60px auto 0; }
+  .tile {
+    background: #fff; border-radius: 24px; padding: 56px 40px 48px; text-align: center;
+  }
+  .tile.dark { background: #101013; color: #f5f5f7; }
+  .tile .k { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 10px; }
+  .tile.dark .k { color: #9a9aa5; }
+  .tile h3 { font-size: clamp(26px, 3vw, 38px); font-weight: 700; letter-spacing: -1px; }
+  .tile p { font-size: 17px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+  .tile.dark p { color: #a1a1ab; }
+  .mock {
+    margin: 34px auto 0; width: min(380px, 100%); border-radius: 16px; padding: 18px;
+    background: var(--bg2); text-align: left; font-family: 'SF Mono', ui-monospace, monospace; font-size: 12.5px; line-height: 1.9;
+  }
+  .tile.dark .mock { background: #1c1c21; }
+  .mock .ln { color: #6e6e73; } .mock .kw { color: #ad3da4; } .mock .fn { color: #0b66d6; } .mock .st { color: #1f7a33; }
+  .tile.dark .kw { color: #ff7ab2; } .tile.dark .fn { color: #6cb6ff; } .tile.dark .st { color: #7ee787; } .tile.dark .ln { color: #6e6e7a; }
+  /* Big statement */
+  .statement { text-align: center; padding: 130px 24px; max-width: 980px; margin: 0 auto; }
+  .statement h2 { font-size: clamp(30px, 4.4vw, 54px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.15; }
+  .statement h2 em { font-style: normal; color: var(--link); }
+  .statement p { font-size: 21px; color: var(--muted); margin-top: 22px; line-height: 1.55; }
+  footer {
+    border-top: 1px solid var(--border); background: var(--bg2);
+    padding: 20px 40px; font-size: 12px; color: var(--muted);
+    display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">Лебедев</span>
+  <a href="#">Проекты</a><a href="#">Опыт</a><a href="#">Принципы</a><a href="#">Контакты</a><a href="#" class="lang">EN</a>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">Full Stack Web Developer</div>
+  <h1>Лебедев<span class="thin">От базы данных до пикселя.</span></h1>
+  <p class="sub">Проектирую и создаю веб-продукты целиком: архитектура, бэкенд, интерфейс, деплой. Тихо, аккуратно, в срок.</p>
+  <div class="cta-row">
+    <a class="pill" href="#">Смотреть проекты</a>
+    <a class="link-more" href="#">Написать мне →</a>
+  </div>
+</section>
+
+<section class="showcase">
+  <h2>Два конца стека. Один человек.</h2>
+  <p class="sub2">Не «фронтендер, который немножко умеет бэкенд». Полный цикл: от схемы БД и API до последнего пикселя и анимации.</p>
+  <div class="duo">
+    <div class="tile">
+      <div class="k">Backend</div>
+      <h3>Надёжный фундамент</h3>
+      <p>Node.js · PostgreSQL · API · интеграции</p>
+      <div class="mock">
+        <div class="ln">01</div>
+        <div><span class="kw">await</span> <span class="fn">db</span>.<span class="fn">query</span>(<span class="st">'projects'</span>)</div>
+        <div class="ln">02</div>
+        <div><span class="kw">return</span> <span class="fn">json</span>(result)</div>
+      </div>
+    </div>
+    <div class="tile dark">
+      <div class="k">Frontend</div>
+      <h3>Интерфейс, который чувствуется</h3>
+      <p>React · Next.js · анимации · дизайн-системы</p>
+      <div class="mock">
+        <div class="ln">01</div>
+        <div><span class="kw">const</span> site = <span class="fn">craft</span>(<span class="st">'pixel-perfect'</span>)</div>
+        <div class="ln">02</div>
+        <div><span class="fn">render</span>(site, { <span class="st">smooth: true</span> })</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <h2>Простое — сложно.<br>Сложное — <em>просто</em>.</h2>
+  <p>Семь лет превращаю идеи в работающие продукты. Чистый код, честные сроки, продакшен, а не демо.</p>
+  <div class="cta-row">
+    <a class="pill" href="#">Написать мне</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 lebedev.club</span>
+  <span>RU / EN · Москва, GMT+3</span>
+</footer>
+</body>
+</html>

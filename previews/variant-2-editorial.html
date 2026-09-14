@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Вариант 2 — Editorial / Brutalist</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --paper: #f4f1ea; --ink: #141414; --accent: #e8442e; --line: #141414;
+  }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: 'Helvetica Neue', 'Inter', Arial, sans-serif;
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+  .mono { font-family: 'SF Mono', 'Courier New', monospace; }
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 40px; border-bottom: 3px solid var(--line);
+  }
+  .logo { font-weight: 900; font-size: 18px; letter-spacing: -.5px; text-transform: uppercase; }
+  nav a { color: var(--ink); text-decoration: none; margin-left: 26px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+  nav a:hover { color: var(--accent); }
+  .lang { border: 2px solid var(--ink); padding: 3px 10px; }
+  main { flex: 1; padding: 0 40px; }
+  .top-rule { border-bottom: 1px solid var(--line); }
+  .marquee {
+    border-bottom: 1px solid var(--line); padding: 8px 0; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 2px; white-space: nowrap; overflow: hidden;
+  }
+  .marquee span { display: inline-block; animation: scroll 18s linear infinite; }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .hero {
+    display: grid; grid-template-columns: 1fr auto; gap: 40px;
+    padding: 60px 0 48px; align-items: end;
+  }
+  h1 {
+    font-size: clamp(44px, 8.5vw, 108px); font-weight: 900; line-height: .95;
+    letter-spacing: -3px; text-transform: uppercase;
+  }
+  .stroke { color: transparent; -webkit-text-stroke: 2px var(--ink); }
+  .accent { color: var(--accent); }
+  .stamp {
+    width: 150px; height: 150px; border: 3px solid var(--accent); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    color: var(--accent); font-size: 12px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1px; transform: rotate(12deg); line-height: 1.4;
+    animation: spin 14s linear infinite; flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(372deg); } }
+  .lead-grid {
+    display: grid; grid-template-columns: 2fr 1fr; gap: 40px;
+    border-top: 3px solid var(--line); border-bottom: 3px solid var(--line); padding: 28px 0;
+  }
+  .lead { font-size: clamp(18px, 2vw, 24px); line-height: 1.5; max-width: 640px; }
+  .lead b { background: var(--accent); color: var(--paper); padding: 0 6px; }
+  .facts { font-size: 13px; line-height: 2; border-left: 1px solid var(--line); padding-left: 32px; }
+  .facts .k { text-transform: uppercase; letter-spacing: 1px; color: #777; display: block; }
+  .sections { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+  .cell { padding: 28px 28px 28px 0; border-right: 1px solid var(--line); }
+  .cell:last-child { border-right: none; }
+  .cell h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: flex; gap: 10px; }
+  .num { color: var(--accent); }
+  .cell p { font-size: 13px; color: #555; line-height: 1.6; }
+  .cta-row { display: flex; gap: 16px; padding: 32px 0 48px; }
+  .btn {
+    text-decoration: none; text-transform: uppercase; letter-spacing: 1px; font-weight: 800;
+    font-size: 14px; padding: 16px 32px; border: 3px solid var(--ink); color: var(--ink);
+    transition: transform .1s;
+  }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn:hover { transform: translate(-3px, -3px); box-shadow: 4px 4px 0 var(--accent); }
+  footer {
+    padding: 18px 40px; border-top: 3px solid var(--line); font-size: 12px;
+    display: flex; justify-content: space-between; text-transform: uppercase; letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">Lebedev.club</span>
+  <div>
+    <a href="#">Работы</a><a href="#">Опыт</a><a href="#">Контакт</a><a href="#" class="lang">EN</a>
+  </div>
+</nav>
+<main>
+  <div class="marquee mono"><span>full stack developer ★ от базы данных до пикселя ★ typescript ★ next.js ★ node.js ★ postgresql ★ full stack developer ★ от базы данных до пикселя ★ typescript ★ next.js ★ node.js ★ postgresql ★ </span></div>
+  <div class="hero">
+    <h1>Лебе-<br>дев<span class="accent">.</span><br><span class="stroke">Full Stack</span></h1>
+    <div class="stamp">open to<br>work &<br>collab<br>★ 2026</div>
+  </div>
+  <div class="lead-grid">
+    <p class="lead">Проектирую и строю веб-продукты <b>целиком</b>: от схемы базы и API до интерфейса, который приятно трогать. Меньше слов — больше продакшена.</p>
+    <div class="facts mono">
+      <span class="k">Стек</span> TS · Next.js · Node · PG<br>
+      <span class="k">Опыт</span> 7+ лет<br>
+      <span class="k">Формат</span> продакшен-фиш<br>
+      <span class="k">Языки</span> RU / EN
+    </div>
+  </div>
+  <div class="sections">
+    <div class="cell"><h3><span class="num">01</span> Проекты</h3><p>Кейсы с задачей, решением и результатом. Живые ссылки, а не заглушки.</p></div>
+    <div class="cell"><h3><span class="num">02</span> Принципы</h3><p>Простота, типографика, производительность и «доставить в срок».</p></div>
+    <div class="cell"><h3><span class="num">03</span> Контакт</h3><p>Email, Telegram, GitHub. Отвечаю быстро, работаю вдумчиво.</p></div>
+  </div>
+  <div class="cta-row">
+    <a class="btn primary" href="#">Смотреть работы</a>
+    <a class="btn" href="#">Написать мне</a>
+  </div>
+</main>
+<footer><span>© lebedev.club — 2026</span><span class="mono">print("hello, visitor")</span><span>Made by hand</span></footer>
+</body>
+</html>

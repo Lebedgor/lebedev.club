@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEBEDEV LABS — Full Stack Web Developer</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0c0d12; --surface: rgba(255,255,255,.04); --border: rgba(255,255,255,.09);
+    --text: #f2f4f8; --muted: #9aa3b2;
+    --c1: #7c5cff; --c2: #2dd4bf; --c3: #f472b6;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+    min-height: 100vh; overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  section { position: relative; z-index: 1; }
+  /* ---------- ambient glows (цветовые акценты) ---------- */
+  .glow { position: fixed; border-radius: 50%; filter: blur(130px); pointer-events: none; z-index: 0; }
+  .g1 { width: 620px; height: 620px; background: var(--c1); top: -200px; left: 8%; opacity: .35; animation: drift1 16s ease-in-out infinite alternate; }
+  .g2 { width: 520px; height: 520px; background: var(--c2); bottom: -220px; right: -120px; opacity: .2; animation: drift2 20s ease-in-out infinite alternate; }
+  .g3 { width: 420px; height: 420px; background: var(--c3); top: 30%; left: 55%; opacity: .12; animation: drift3 24s ease-in-out infinite alternate; }
+  @keyframes drift1 { to { transform: translate(90px, 70px) scale(1.12); } }
+  @keyframes drift2 { to { transform: translate(-80px, -60px) scale(1.15); } }
+  @keyframes drift3 { to { transform: translate(-110px, 90px) scale(.9); } }
+  .dotgrid {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .55;
+    background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.4px);
+    background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, #000 35%, transparent 100%);
+  }
+  .progress-line {
+    position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 10; pointer-events: none;
+    background: linear-gradient(90deg, var(--c1), var(--c2), var(--c3)); border-radius: 2px;
+  }
+  /* ambient glow spots removed by design decision — torch lights + dotgrid only */
+  /* ---------- nav (liquid glass) ---------- */
+  .glass {
+    position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+    width: min(920px, calc(100% - 48px)); display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 20px; border-radius: 16px; z-index: 3;
+    background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03) 55%, rgba(255,255,255,.05));
+    backdrop-filter: blur(22px) saturate(160%); -webkit-backdrop-filter: blur(22px) saturate(160%);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,.16), inset 0 -1px 1px rgba(0,0,0,.25), 0 10px 36px rgba(0,0,0,.35);
+    animation: dropIn .7s cubic-bezier(.2,.9,.3,1.2) both;
+  }
+  .glass::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,.08) 45%, rgba(255,255,255,.18));
+    -webkit-mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+  .glass::after {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,.10), transparent 55%);
+  }
+  @keyframes dropIn { from { opacity: 0; transform: translate(-50%, -30px); } to { opacity: 1; transform: translate(-50%, 0); } }
+  .logo { font-weight: 800; letter-spacing: 1.5px; display: flex; align-items: center; gap: 10px; font-size: 14px; white-space: nowrap; }
+  .logo .dot { width: 10px; height: 10px; border-radius: 4px; background: linear-gradient(135deg, var(--c1), var(--c2)); animation: spinPulse 6s ease-in-out infinite; flex-shrink: 0; }
+  @keyframes spinPulse { 0%,100% { transform: rotate(0deg) scale(1); border-radius: 4px; } 50% { transform: rotate(180deg) scale(1.2); border-radius: 50%; } }
+  .glass .links { display: flex; align-items: center; }
+  .glass .links a:not(.lang) {
+    position: relative; color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
+    padding: 8px 15px; margin-left: 4px; border-radius: 999px; isolation: isolate;
+    transition: color .2s, background .2s, box-shadow .2s;
+  }
+  .glass .links a:not(.lang):hover {
+    color: var(--text);
+    background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.04));
+    box-shadow: inset 0 1px 1px rgba(255,255,255,.16), inset 0 -1px 1px rgba(0,0,0,.2), 0 4px 14px rgba(0,0,0,.25);
+  }
+  .glass .links a:not(.lang).active {
+    color: var(--text);
+    background: linear-gradient(180deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
+    box-shadow: inset 0 1px 1px rgba(255,255,255,.18), inset 0 -1px 1px rgba(0,0,0,.25);
+  }
+  .glass .links a:not(.lang).active::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: linear-gradient(180deg, rgba(124,92,255,.55), rgba(124,92,255,.08) 45%, rgba(45,212,191,.25));
+    -webkit-mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+  .lang {
+    position: relative; isolation: isolate;
+    border: none; border-radius: 999px; padding: 6px 15px; color: var(--muted); font-size: 13px; margin-left: 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,.18), inset 0 -1px 1px rgba(0,0,0,.25);
+    transition: color .2s; cursor: pointer; text-decoration: none; display: inline-block;
+  }
+  .lang::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,.06) 45%, rgba(255,255,255,.14));
+    -webkit-mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+  .lang:hover { color: var(--text); }
+  /* ---------- glass button ---------- */
+  .glass-wrap { position: relative; border-radius: 999px; }
+  .glass-btn {
+    position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center;
+    border: none; border-radius: 999px; padding: 15px 30px;
+    font-size: 15px; font-weight: 500; letter-spacing: -.02em; color: #f2f4f8;
+    background: linear-gradient(180deg, rgba(255,255,255,.13), rgba(255,255,255,.03));
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,.22), inset 0 -1px 1px rgba(0,0,0,.35);
+    cursor: pointer; text-decoration: none; user-select: none;
+    transition: transform .25s cubic-bezier(.2,.8,.2,1), filter .25s, box-shadow .25s;
+  }
+  .glass-btn::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,.5), rgba(255,255,255,.06) 45%, rgba(255,255,255,.18));
+    -webkit-mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+  .glass-btn::after {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: radial-gradient(120% 60% at 50% 0%, rgba(255,255,255,.16), transparent 60%);
+  }
+  .glass-ring-shine {
+    position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+    --shine-angle: 0deg;
+    background: conic-gradient(from var(--shine-angle),
+      transparent 0deg, transparent 285deg,
+      rgba(255,255,255,.05) 305deg, rgba(255,255,255,.95) 335deg,
+      rgba(255,255,255,.05) 355deg, transparent 360deg);
+    -webkit-mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity .35s;
+  }
+  @property --shine-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+  .glass-btn:hover .glass-ring-shine { opacity: 1; animation: shineSpin 2.4s linear infinite; }
+  @keyframes shineSpin { to { --shine-angle: 360deg; } }
+  .glass-btn:hover {
+    transform: translateY(-1px); filter: brightness(1.18);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,.38), inset 0 -1px 1px rgba(0,0,0,.35), 0 8px 28px rgba(124,92,255,.18);
+  }
+  .glass-btn:active { transform: translateY(0) scale(.97); }
+  .glass-btn svg { width: 18px; height: 18px; transition: transform .2s; }
+  .glass-btn:hover svg { transform: translateX(3px); }
+  .glass-wrap.ghost .glass-btn { background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); }
+  .glass-shadow {
+    position: absolute; left: 12%; right: 12%; bottom: -6px; height: 14px; border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(124,92,255,.55), rgba(124,92,255,0) 72%);
+    filter: blur(14px); opacity: .35; z-index: -1; pointer-events: none;
+    transition: opacity .3s, transform .3s;
+  }
+  .glass-wrap:hover .glass-shadow { opacity: .8; transform: translateY(3px) scaleX(1.05); }
+  .glass-wrap.ghost .glass-shadow { background: radial-gradient(50% 50% at 50% 50%, rgba(255,255,255,.4), rgba(255,255,255,0) 72%); }
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 150px 24px 40px;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted);
+    border: 1px solid var(--border); border-radius: 999px; padding: 7px 16px; background: var(--surface);
+    backdrop-filter: blur(10px); margin-bottom: 26px;
+    animation: riseIn .7s .15s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .badge .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--c2); box-shadow: 0 0 0 0 rgba(45,212,191,.6); animation: pulse 2s infinite; }
+  @keyframes pulse { 70% { box-shadow: 0 0 0 9px rgba(45,212,191,0); } 100% { box-shadow: 0 0 0 0 rgba(45,212,191,0); } }
+  /* identity card in About: portrait with gradient ring, not a circle */
+  .about-head { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+  .about-photo {
+    width: 118px; height: 148px; border-radius: 20px; padding: 2px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--c1), var(--c2), var(--c3));
+    box-shadow: 0 10px 40px rgba(124,92,255,.3);
+    transform: rotate(-2.5deg);
+    transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s;
+  }
+  .about-photo:hover { transform: rotate(0deg) scale(1.04); box-shadow: 0 14px 50px rgba(124,92,255,.45); }
+  .about-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    border-radius: 18px; border: 3px solid var(--bg);
+  }
+  .about-name { font-size: 19px; font-weight: 800; letter-spacing: -.4px; }
+  .about-role { color: var(--muted); font-size: 13.5px; margin-top: 4px; }
+  .about-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  h1 {
+    font-size: clamp(38px, 6.5vw, 76px); font-weight: 800; letter-spacing: -2.5px; line-height: 1.08; max-width: 900px;
+    animation: riseIn .8s .35s cubic-bezier(.2,.8,.2,1) both;
+  }
+  h1 .white { background: linear-gradient(120deg, #fff 30%, #b9c0d0 70%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h1 .grad {
+    background: linear-gradient(90deg, var(--c1), var(--c3), var(--c2), var(--c1));
+    background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+  @keyframes shimmer { to { background-position: 300% 0; } }
+  .sub { color: var(--muted); font-size: clamp(16px, 1.8vw, 19px); line-height: 1.65; max-width: 640px; margin: 22px 0 34px; animation: riseIn .8s .5s cubic-bezier(.2,.8,.2,1) both; }
+  .actions { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; animation: riseIn .8s .65s cubic-bezier(.2,.8,.2,1) both; }
+  .scroll-hint {
+    margin-top: 56px; width: 24px; height: 40px; border: 1.5px solid var(--border); border-radius: 14px;
+    display: flex; justify-content: center; padding-top: 8px; animation: riseIn .8s .85s both;
+  }
+  .scroll-hint span { width: 3px; height: 8px; border-radius: 3px; background: var(--c2); animation: wheel 1.6s ease-in-out infinite; }
+  @keyframes wheel { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(12px); opacity: 0; } 100% { opacity: 0; } }
+  /* ---------- shared section layout ---------- */
+  .section { max-width: 1080px; margin: 0 auto; padding: 90px 24px 0; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--c2); margin-bottom: 14px;
+  }
+  .eyebrow::before { content: ''; width: 22px; height: 1.5px; border-radius: 2px; background: linear-gradient(90deg, var(--c2), transparent); }
+  h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -1.8px; line-height: 1.12; }
+  h2 .grad { background: linear-gradient(90deg, var(--c1), var(--c3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .section-sub { color: var(--muted); font-size: 16.5px; line-height: 1.65; max-width: 620px; margin-top: 16px; }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); }
+  .reveal.visible { opacity: 1; transform: none; }
+  /* ---------- stats ---------- */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; width: 100%; margin-top: 60px; }
+  .stat {
+    border: 1px solid var(--border); border-radius: 16px; padding: 22px 20px; text-align: center;
+    background: var(--surface); backdrop-filter: blur(10px);
+  }
+  .stat .n { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; letter-spacing: -1px; background: linear-gradient(120deg, #fff, #b9c0d0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .n em { font-style: normal; background: linear-gradient(90deg, var(--c1), var(--c2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .l { font-size: 12.5px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+  /* ---------- direction cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 44px; perspective: 900px; }
+  .card {
+    position: relative; border: 1px solid var(--border); border-radius: 16px; padding: 22px 20px; text-align: left;
+    background: var(--surface); backdrop-filter: blur(10px); transition: transform .18s ease-out, border-color .2s;
+    transform-style: preserve-3d;
+  }
+  .card::before {
+    content: ''; position: absolute; inset: 0; border-radius: 16px; pointer-events: none;
+    background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(124,92,255,.16), transparent 70%);
+    opacity: 0; transition: opacity .25s;
+  }
+  .card:hover::before { opacity: 1; }
+  .card:hover { border-color: rgba(124,92,255,.5); }
+  .card .ico { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; background: rgba(124,92,255,.14); border: 1px solid rgba(124,92,255,.25); transition: transform .25s cubic-bezier(.3,1.6,.5,1); }
+  .card .ico svg { width: 19px; height: 19px; stroke: var(--c1); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .card:hover .ico { transform: scale(1.12) rotate(-4deg); }
+  .card h3 { font-size: 14.5px; margin-bottom: 7px; }
+  .card p { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  /* ---------- projects ---------- */
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 44px; perspective: 1200px; }
+  .project-card {
+    position: relative; display: flex; flex-direction: column;
+    border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+    background: var(--surface); backdrop-filter: blur(10px);
+    transition: transform .18s ease-out, border-color .25s; transform-style: preserve-3d;
+    text-decoration: none; color: inherit;
+  }
+  .project-card::before {
+    content: ''; position: absolute; inset: 0; border-radius: 20px; pointer-events: none; z-index: 2;
+    background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(124,92,255,.14), transparent 70%);
+    opacity: 0; transition: opacity .25s;
+  }
+  .project-card:hover::before { opacity: 1; }
+  .project-card:hover { border-color: rgba(124,92,255,.5); }
+  .project-card .shot { aspect-ratio: 16/9.5; overflow: hidden; border-bottom: 1px solid var(--border); background: #14151d; }
+  .project-card .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+  .project-card:hover .shot img { transform: scale(1.04); }
+  .project-card .body { padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .project-card .top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .project-card h3 { font-size: 17px; font-weight: 700; letter-spacing: -.3px; }
+  .kind { font-size: 10.5px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--c2); white-space: nowrap; }
+  .project-card p { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+  .project-card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
+  .tag { font-size: 11px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; background: rgba(255,255,255,.03); }
+  .metric { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 600; color: #ffe9a8; }
+  .metric svg { width: 13px; height: 13px; fill: #fbbf24; stroke: none; }
+  /* ---------- about / experience ---------- */
+  .exp-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; margin-top: 44px; align-items: start; }
+  .about-text { font-size: 15.5px; line-height: 1.75; color: var(--muted); }
+  .about-text b { color: var(--text); font-weight: 600; }
+  .about-text p + p { margin-top: 14px; }
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .skill { font-size: 12.5px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 7px 14px; background: var(--surface); transition: border-color .2s, color .2s; cursor: default; }
+  .skill:hover { border-color: rgba(45,212,191,.5); color: var(--text); }
+  .timeline { position: relative; padding-left: 26px; display: flex; flex-direction: column; gap: 26px; }
+  .timeline::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(180deg, var(--c1), var(--c2) 60%, transparent); opacity: .5; }
+  .titem { position: relative; }
+  .titem::before {
+    content: ''; position: absolute; left: -26px; top: 5px; width: 11px; height: 11px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--c1); box-shadow: 0 0 12px rgba(124,92,255,.5);
+  }
+  .titem:nth-child(4)::before, .titem:nth-child(5)::before { border-color: var(--c2); box-shadow: 0 0 12px rgba(45,212,191,.5); }
+  .titem .when { font-size: 11.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--c1); margin-bottom: 5px; }
+  .titem:nth-child(4) .when, .titem:nth-child(5) .when { color: var(--c2); }
+  .titem h4 { font-size: 15.5px; font-weight: 700; margin-bottom: 5px; letter-spacing: -.2px; }
+  .titem p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+  /* ---------- contact ---------- */
+  .contact-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 44px; }
+  .contact-card {
+    display: flex; flex-direction: column; gap: 10px; padding: 22px 20px; text-decoration: none;
+    border: 1px solid var(--border); border-radius: 16px; background: var(--surface); backdrop-filter: blur(10px);
+    transition: border-color .2s, transform .18s ease-out;
+  }
+  .contact-card:hover { border-color: rgba(124,92,255,.5); transform: translateY(-3px); }
+  .contact-card .ico { width: 38px; height: 38px; border-radius: 11px; display: flex; align-items: center; justify-content: center; background: rgba(124,92,255,.14); border: 1px solid rgba(124,92,255,.25); }
+  .contact-card .ico svg { width: 18px; height: 18px; stroke: var(--c1); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .contact-card .k { font-size: 11.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .contact-card .v { font-size: 14px; font-weight: 600; color: var(--text); word-break: break-all; }
+  .contact-cta { display: flex; justify-content: center; margin-top: 40px; }
+  /* ---------- footer ---------- */
+  footer {
+    margin-top: 100px; padding: 26px 24px; text-align: center; color: var(--muted); font-size: 12.5px;
+    border-top: 1px solid var(--border); position: relative; z-index: 1;
+    background: linear-gradient(180deg, transparent, rgba(255,255,255,.02));
+  }
+  footer .brand { font-weight: 800; letter-spacing: 1.5px; color: var(--text); }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .contact-cards { grid-template-columns: repeat(2, 1fr); }
+    .exp-grid { grid-template-columns: 1fr; gap: 44px; }
+    .glass .links a:not(.lang) { display: none; }
+    .glass .links a.lang { display: inline-block; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding-top: 130px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .cards, .projects, .contact-cards { grid-template-columns: 1fr; }
+    .section { padding: 70px 20px 0; }
+    .actions .glass-wrap { width: 100%; }
+    .actions .glass-btn { width: 100%; }
+    .logo { font-size: 12.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="dotgrid" aria-hidden="true"></div>
+<div class="progress-line" id="progressLine" aria-hidden="true"></div>
+<div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+
+<div class="glass">
+  <span class="logo"><span class="dot"></span>LEBEDEV LABS</span>
+  <div class="links">
+    <a href="#projects" class="active">Projects</a><a href="#directions">Expertise</a><a href="#experience">Experience</a><a href="#contact">Contact</a><a href="#" class="lang">RU</a>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="badge"><span class="pulse"></span> available for new projects · 2026</div>
+  <h1><span class="white">Full Stack Web Developer.<br>From </span><span class="grad">database</span><span class="white"> to </span><span class="grad">pixel</span><span class="white">.</span></h1>
+  <p class="sub">I'm Lebedev. I build e-commerce systems and full-stack web applications — architecture, backend, interface, deployment. 8+ years of experience, 800+ commercial sales of my own products.</p>
+  <div class="actions">
+    <div class="glass-wrap">
+      <a class="glass-btn" href="#projects"><span class="glass-ring-shine"></span>View projects</a>
+      <div class="glass-shadow"></div>
+    </div>
+    <div class="glass-wrap ghost">
+      <a class="glass-btn" href="#contact"><span class="glass-ring-shine"></span>Contact me
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <div class="glass-shadow"></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span></div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">8<em>+</em></div><div class="l">years of web development</div></div>
+    <div class="stat"><div class="n">800<em>+</em></div><div class="l">sales of my own extensions</div></div>
+    <div class="stat"><div class="n">50<em>+</em></div><div class="l">verified customer reviews</div></div>
+    <div class="stat"><div class="n">3<em>+</em></div><div class="l">platforms: web, mobile, desktop</div></div>
+  </div>
+</section>
+
+<!-- ================= EXPERTISE ================= -->
+<section class="section" id="directions">
+  <div class="reveal">
+    <div class="eyebrow">Expertise</div>
+    <h2>What I <span class="grad">build</span></h2>
+    <p class="section-sub">Four directions, one standard: production quality, performance and long-term support.</p>
+  </div>
+  <div class="cards">
+    <div class="card reveal">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"/><path d="M9 20v-6h6v6"/></svg></div>
+      <h3>E-commerce</h3>
+      <p>OpenCart, WordPress &amp; WooCommerce: store creation, custom design, support, complex customizations and integrations.</p>
+    </div>
+    <div class="card reveal">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22V12"/><path d="M12 12 8 8l4-4 4 4-4 4"/><rect x="3" y="14" width="18" height="7" rx="2"/></svg></div>
+      <h3>Plugins &amp; Modules</h3>
+      <p>Commercial extensions from scratch: EX Reviews for OpenCart, PVR Media Reviews for WooCommerce — architecture, licensing, SEO.</p>
+    </div>
+    <div class="card reveal">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
+      <h3>Full-Stack Apps</h3>
+      <p>Modern web applications built end-to-end: React, Node.js, Express, Prisma, PostgreSQL — frontend and backend from scratch.</p>
+    </div>
+    <div class="card reveal">
+      <div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/><path d="M7 5h10v11H7z"/></svg></div>
+      <h3>Cross-Platform</h3>
+      <p>Applications for Android, iOS and Windows — from idea to publication, sharing the same product thinking.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="section" id="projects">
+  <div class="reveal">
+    <div class="eyebrow">Projects</div>
+    <h2>Selected <span class="grad">work</span></h2>
+    <p class="section-sub">Real products in production: platforms, marketplaces products and dealership systems.</p>
+  </div>
+  <div class="projects">
+
+    <a class="project-card reveal" href="https://aquascape.in.ua/en/2025" target="_blank" rel="noopener">
+      <div class="shot"><img src="../assets/images/Aquascape%20Competition%20Platform%20/Aquascape_main.png" alt="Aquascape Competition Platform" loading="lazy"></div>
+      <div class="body">
+        <div class="top"><h3>Aquascape Competition Platform</h3><span class="kind">Full-Stack Platform</span></div>
+        <p>Bilingual aquascaping competition platform built from scratch: participant and judge dashboards, role-based auth, competition seasons, entry submissions, configurable judging criteria, scoring, ranking and prize management. UA/EN localization, image processing, email notifications, Docker-based deployment.</p>
+        <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+      </div>
+    </a>
+
+    <a class="project-card reveal" href="https://porschednipro.com.ua/" target="_blank" rel="noopener">
+      <div class="shot"><img src="../assets/images/Porsche%20Dnipro/Porsche_main.png" alt="Porsche Dnipro" loading="lazy"></div>
+      <div class="body">
+        <div class="top"><h3>Porsche Dnipro</h3><span class="kind">Automotive Gallery</span></div>
+        <p>Modern automotive gallery website for a Porsche dealership: vehicle gallery, car detail pages, responsive layouts, content management functionality and a server-side API. Clean premium UI and fast navigation across desktop and mobile.</p>
+        <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span><span class="tag">Docker</span><span class="tag">Premium UI</span></div>
+      </div>
+    </a>
+
+    <a class="project-card reveal" href="https://pv-reviews.site/" target="_blank" rel="noopener">
+      <div class="shot"><img src="../assets/images/PVR%20Media%20Reviews/pvr_main.png" alt="PVR Media Reviews" loading="lazy"></div>
+      <div class="body">
+        <div class="top"><h3>PVR Media Reviews</h3><span class="kind">WooCommerce Plugin</span></div>
+        <p>Production-ready WooCommerce plugin extending product reviews with photo and video uploads: custom plugin architecture, admin settings, client-side video compression, automatic thumbnails, media galleries, SEO features and a Pro license management system.</p>
+        <div class="tags"><span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">Licensing</span><span class="tag">SEO</span></div>
+      </div>
+    </a>
+
+    <a class="project-card reveal" href="https://extended-reviews.com/ex_reviews_v5_en.html" target="_blank" rel="noopener">
+      <div class="shot"><img src="../assets/images/Extended%20Reviews/image%20(1).png" alt="Extended Reviews" loading="lazy"></div>
+      <div class="body">
+        <div class="top"><h3>Extended Reviews</h3><span class="kind">OpenCart Module</span></div>
+        <div class="metric"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.5 6.7L12 16.9 5.9 20.2l1.5-6.7L2.2 8.9l6.9-.6L12 2z"/></svg>800+ sales · 50+ customer reviews</div>
+        <p>Full-featured review and UGC system for OpenCart: photo and video reviews, media galleries, filtering and sorting, admin moderation, SEO landing pages, caching, anti-spam, customer rewards, coupons and automated email reminders.</p>
+        <div class="tags"><span class="tag">OpenCart</span><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">SEO</span></div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE / ABOUT ================= -->
+<section class="section" id="experience">
+  <div class="reveal">
+    <div class="eyebrow">Experience</div>
+    <h2>About &amp; <span class="grad">journey</span></h2>
+  </div>
+  <div class="exp-grid">
+    <div>
+      <div class="about-head reveal">
+        <div class="about-photo"><img src="../assets/images/avatar/avatar-tech-modern.jpg" alt="Lebedev — Full Stack Web Developer"></div>
+        <div>
+          <div class="about-name">Lebedev</div>
+          <div class="about-role">Full Stack Web Developer</div>
+          <div class="about-chips"><span class="tag">since 2018</span><span class="tag">freelance</span><span class="tag">RU / EN</span></div>
+        </div>
+      </div>
+      <div class="about-text reveal">
+      <p>Web developer with <b>8+ years of experience</b> building and maintaining e-commerce websites and custom web solutions. My main expertise is <b>OpenCart, WordPress and WooCommerce</b> — custom module and plugin development, complex customizations, API integrations and troubleshooting.</p>
+      <p>I'm the creator of <b>Extended Reviews (EX Reviews)</b> for OpenCart — a commercial extension that reached <b>800+ sales</b> across multiple marketplaces and direct sales, with 249+ purchases and 50+ customer reviews on a single marketplace. I later rebuilt this product for WordPress and WooCommerce as <b>PVR Media Reviews</b>.</p>
+      <p>Today I also build modern full-stack web applications using <b>React, Node.js, Express, Prisma and PostgreSQL</b> — both frontend and backend from scratch — plus applications for Android, iOS and Windows.</p>
+      <div class="skills">
+        <span class="skill">OpenCart</span><span class="skill">WordPress</span><span class="skill">WooCommerce</span>
+        <span class="skill">PHP</span><span class="skill">JavaScript</span><span class="skill">React</span><span class="skill">Node.js</span>
+        <span class="skill">Express</span><span class="skill">Prisma</span><span class="skill">PostgreSQL</span><span class="skill">MySQL</span>
+        <span class="skill">REST APIs</span><span class="skill">Docker</span><span class="skill">SEO</span>
+      </div>
+      </div>
+    </div>
+    <div class="timeline reveal">
+      <div class="titem"><div class="when">Now</div><h4>Full-stack applications</h4><p>React, Node.js, Prisma, PostgreSQL — platforms and products from scratch, frontend and backend.</p></div>
+      <div class="titem"><div class="when">Product</div><h4>PVR Media Reviews</h4><p>Rebuilt the EX Reviews product for WordPress &amp; WooCommerce: media reviews, video compression, custom licensing system.</p></div>
+      <div class="titem"><div class="when">Product</div><h4>Extended Reviews launch</h4><p>Commercial OpenCart extension: 800+ sales across marketplaces, 50+ verified customer reviews.</p></div>
+      <div class="titem"><div class="when">Deep dive</div><h4>E-commerce specialization</h4><p>Custom modules, integrations, redesigns and support for dozens of OpenCart and WooCommerce stores.</p></div>
+      <div class="titem"><div class="when">2018</div><h4>Started freelancing</h4><p>First online stores on OpenCart and WordPress — development, design and ongoing support.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+  <div class="reveal">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's build something <span class="grad">together</span></h2>
+    <p class="section-sub">Have a store to improve, a plugin to build, or a full-stack product to launch? Write me — I reply fast and work carefully.</p>
+  </div>
+  <div class="contact-cards">
+    <a class="contact-card reveal" href="mailto:lebedev.labs@gmail.com">
+      <div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div>
+      <div><div class="k">Email</div><div class="v">lebedev.labs@gmail.com</div></div>
+    </a>
+    <a class="contact-card reveal" href="https://t.me/ExWebDev">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="m22 3-3 17-8-6-3 4-1-6L21 4l-13 8"/><path d="m22 3-11 11"/></svg></div>
+      <div><div class="k">Telegram</div><div class="v">@ExWebDev</div></div>
+    </a>
+    <a class="contact-card reveal" href="https://github.com/Lebedgor">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></div>
+      <div><div class="k">GitHub</div><div class="v">github.com/Lebedgor</div></div>
+    </a>
+    <a class="contact-card reveal" href="https://www.upwork.com/freelancers/~01d1e42e87a34b9d38">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M16 8a4.5 4.5 0 0 1 4.5 4.5c0 3-2.5 5.5-5.5 5.5-3 0-4-2-5.5-5L8 10.5C7.3 9 6.7 8 5.5 8S3.5 9 3.5 10.5 4.6 13 6 13"/><path d="M13.5 8 11 18"/></svg></div>
+      <div><div class="k">Upwork</div><div class="v">/freelancers/~01d1e42e…</div></div>
+    </a>
+  </div>
+  <div class="contact-cta reveal">
+    <div class="glass-wrap">
+      <a class="glass-btn" href="mailto:lebedev.labs@gmail.com"><span class="glass-ring-shine"></span>Start a project</a>
+      <div class="glass-shadow"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="brand">LEBEDEV LABS</span> · © 2026 lebedev.club · crafted, not generated
+</footer>
+
+<script>
+  // background: dotgrid drift + reading progress (torch lights removed by decision)
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dotgrid = document.querySelector('.dotgrid');
+  const progressLine = document.getElementById('progressLine');
+
+  let scT = 0, scC = 0;
+  addEventListener('scroll', () => { scT = scrollY; }, { passive: true });
+  (function scrollLoop() {
+    scC += (scT - scC) * .08;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    if (!reduced) {
+      dotgrid.style.backgroundPosition = `0px ${(scC * .12).toFixed(1)}px`;
+    }
+    progressLine.style.width = (max > 0 ? (scT / max) * 100 : 0) + '%';
+    requestAnimationFrame(scrollLoop);
+  })();
+
+  // scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // 3D tilt + spotlight for cards
+  document.querySelectorAll('.card, .project-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+      card.style.setProperty('--mx', px * 100 + '%');
+      card.style.setProperty('--my', py * 100 + '%');
+      card.style.transform = `rotateX(${(py - .5) * -6}deg) rotateY(${(px - .5) * 6}deg) translateY(-2px)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+
+  // active nav link on scroll
+  const navLinks = document.querySelectorAll('.glass .links a:not(.lang)');
+  const sections = [...navLinks].map(a => document.querySelector(a.getAttribute('href')));
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => s && spy.observe(s));
+</script>
+</body>
+</html>

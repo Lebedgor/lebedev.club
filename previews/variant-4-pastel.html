@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Вариант 4 — Light Pastel (together.ai)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #fdfdfc; --text: #1a1a1a; --muted: #6b6f76; --border: #e8e8e4;
+    --lav: #7c6cf0; --mint: #3ec9a7; --peach: #f5b98e; --rose: #f08fb5;
+    --lav-soft: #eceafa; --mint-soft: #e0f5ef; --peach-soft: #fceee2; --rose-soft: #fbe5ee;
+  }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+    min-height: 100vh; display: flex; flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 48px; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: rgba(253,253,252,.85); backdrop-filter: blur(12px); z-index: 2;
+  }
+  .logo { font-weight: 700; font-size: 15px; letter-spacing: -.3px; display: flex; align-items: center; gap: 8px; }
+  .logo .mark {
+    width: 22px; height: 22px; border-radius: 7px;
+    background: linear-gradient(135deg, var(--lav), var(--rose));
+  }
+  nav .links a {
+    color: var(--muted); text-decoration: none; margin-left: 30px; font-size: 14px; font-weight: 500;
+  }
+  nav .links a:hover { color: var(--text); }
+  .lang { border: 1px solid var(--border); border-radius: 999px; padding: 5px 13px; font-size: 13px; color: var(--muted); margin-left: 30px; }
+  main { flex: 1; padding: 0 48px; }
+  .hero { max-width: 1100px; margin: 0 auto; text-align: center; padding: 90px 0 30px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #5a5580;
+    background: var(--lav-soft); border-radius: 999px; padding: 7px 16px; font-weight: 500; margin-bottom: 30px;
+  }
+  h1 {
+    font-size: clamp(36px, 5.6vw, 64px); font-weight: 700; letter-spacing: -2.2px; line-height: 1.1; max-width: 860px; margin: 0 auto;
+  }
+  h1 .pastel {
+    background: linear-gradient(90deg, var(--lav), var(--rose) 55%, var(--mint));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .sub { color: var(--muted); font-size: clamp(16px, 1.7vw, 19px); line-height: 1.65; max-width: 560px; margin: 24px auto 36px; }
+  .actions { display: flex; gap: 12px; justify-content: center; }
+  .btn { text-decoration: none; font-size: 15px; font-weight: 600; padding: 13px 26px; border-radius: 999px; transition: transform .12s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.primary { background: var(--text); color: #fff; }
+  .btn.soft { background: var(--lav-soft); color: #4a3fb5; }
+  .cards-wrap { max-width: 1100px; margin: 70px auto 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .card {
+    border: 1px solid var(--border); border-radius: 20px; padding: 26px 22px; text-align: left;
+    transition: transform .15s, box-shadow .15s; background: #fff;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(30,30,40,.07); }
+  .card .ico {
+    width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 19px; margin-bottom: 16px;
+  }
+  .card:nth-child(1) .ico { background: var(--lav-soft); }
+  .card:nth-child(2) .ico { background: var(--mint-soft); }
+  .card:nth-child(3) .ico { background: var(--peach-soft); }
+  .card:nth-child(4) .ico { background: var(--rose-soft); }
+  .card h3 { font-size: 15px; font-weight: 650; margin-bottom: 7px; }
+  .card p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+  .stats { max-width: 1100px; margin: 60px auto 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(3, 1fr); }
+  .stat { padding: 34px 20px; text-align: center; }
+  .stat:not(:last-child) { border-right: 1px solid var(--border); }
+  .stat .n { font-size: 34px; font-weight: 700; letter-spacing: -1px; }
+  .stat .l { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  footer { padding: 22px 48px; text-align: center; color: var(--muted); font-size: 12.5px; margin-top: 70px; }
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo"><span class="mark"></span>lebedev.club</span>
+  <div class="links">
+    <a href="#">Проекты</a><a href="#">Опыт</a><a href="#">Контакты</a><a href="#" class="lang">EN</a>
+  </div>
+</nav>
+<main>
+  <div class="hero">
+    <div class="badge">✦ открыт к новым проектам</div>
+    <h1>Full Stack разработчик.<br>Чистый код, <span class="pastel">мягкий интерфейс</span>.</h1>
+    <p class="sub">Привет! Я Лебедев. Создаю веб-продукты целиком — от архитектуры базы данных до продуманного интерфейса. Аккуратно, быстро и в срок.</p>
+    <div class="actions">
+      <a class="btn primary" href="#">Смотреть проекты</a>
+      <a class="btn soft" href="#">Написать мне</a>
+    </div>
+  </div>
+  <div class="cards-wrap">
+    <div class="card"><div class="ico">🎨</div><h3>Frontend</h3><p>React, Next.js, анимации и дизайн-системы, которыми приятно пользоваться.</p></div>
+    <div class="card"><div class="ico">⚙️</div><h3>Backend</h3><p>Node.js, REST/GraphQL API, PostgreSQL — надёжный фундамент продукта.</p></div>
+    <div class="card"><div class="ico">🚀</div><h3>DevOps</h3><p>Docker, CI/CD, мониторинг. Из коммита — в продакшен без боли.</p></div>
+    <div class="card"><div class="ico">🧩</div><h3>Продукт</h3><p>От идеи до MVP: помогаю не только кодить, но и принимать решения.</p></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">7+</div><div class="l">лет в разработке</div></div>
+    <div class="stat"><div class="n">30+</div><div class="l">проектов продакшена</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">языка: RU / EN</div></div>
+  </div>
+</main>
+<footer>© lebedev.club — crafted with care</footer>
+</body>
+</html>
