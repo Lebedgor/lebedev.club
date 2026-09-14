@@ -39,9 +39,9 @@ section {
   pointer-events: none;
   z-index: 0;
 }
-.g1 { width: 620px; height: 620px; background: var(--color-accent); top: -200px; left: 8%; opacity: .09; animation: drift1 16s ease-in-out infinite alternate; }
-.g2 { width: 520px; height: 520px; background: var(--color-accent2); bottom: -220px; right: -120px; opacity: .09; animation: drift2 20s ease-in-out infinite alternate; }
-.g3 { width: 420px; height: 420px; background: var(--color-accent3); top: 30%; left: 55%; opacity: .09; animation: drift3 24s ease-in-out infinite alternate; }
+.g1 { width: 620px; height: 620px; background: var(--color-accent); top: -200px; left: 8%; opacity: .12; animation: drift1 16s ease-in-out infinite alternate; }
+.g2 { width: 520px; height: 520px; background: var(--color-accent2); bottom: -220px; right: -120px; opacity: .12; animation: drift2 20s ease-in-out infinite alternate; }
+.g3 { width: 420px; height: 420px; background: var(--color-accent3); top: 30%; left: 55%; opacity: .12; animation: drift3 24s ease-in-out infinite alternate; }
 @keyframes drift1 { to { transform: translate(90px, 70px) scale(1.12); } }
 @keyframes drift2 { to { transform: translate(-80px, -60px) scale(1.15); } }
 @keyframes drift3 { to { transform: translate(-110px, 90px) scale(.9); } }
