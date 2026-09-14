@@ -80,6 +80,7 @@ export function StarField() {
       const baseSpeed = 0.00012 + speedBoost * 0.0028;
       const cx = w / 2;
       const cy = h / 2;
+      const idle = speedBoost < 1.2;
 
       for (const s of stars) {
         s.pz = s.z;
@@ -93,15 +94,24 @@ export function StarField() {
         const px = cx + (s.x / s.pz) * (w * 0.5);
         const py = cy + (s.y / s.pz) * (w * 0.5);
         const size = Math.max(0.4, (1 - s.z) * 2.2);
-        const alpha = Math.min(0.9, (1 - s.z) * 1.35);
 
-        ctx.strokeStyle = s.color;
-        ctx.lineWidth = size;
-        ctx.globalAlpha = alpha;
-        ctx.beginPath();
-        ctx.moveTo(px, py);
-        ctx.lineTo(sx, sy);
-        ctx.stroke();
+        if (idle) {
+          const r = Math.max(0.6, (1 - s.z) * 1.7);
+          ctx.globalAlpha = Math.min(1, (1 - s.z) * 1.9 + 0.3);
+          ctx.fillStyle = s.color;
+          ctx.beginPath();
+          ctx.arc(sx, sy, r, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          const alpha = Math.min(0.9, (1 - s.z) * 1.35);
+          ctx.strokeStyle = s.color;
+          ctx.lineWidth = size;
+          ctx.globalAlpha = alpha;
+          ctx.beginPath();
+          ctx.moveTo(px, py);
+          ctx.lineTo(sx, sy);
+          ctx.stroke();
+        }
       }
       ctx.globalAlpha = 1;
       raf = requestAnimationFrame(frame);
