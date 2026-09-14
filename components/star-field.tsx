@@ -77,7 +77,7 @@ export function StarField() {
       speedBoost += (Math.min(scrollVel / 30, 9) - speedBoost) * 0.06;
 
       ctx.clearRect(0, 0, w, h);
-      const baseSpeed = 0.0016 + speedBoost * 0.0022;
+      const baseSpeed = 0.00012 + speedBoost * 0.0028;
       const cx = w / 2;
       const cy = h / 2;
 
