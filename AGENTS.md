@@ -1,6 +1,6 @@
 # lebedev.club — Lebedev Labs: личный сайт-визитка + портфолио
 
-Бренд: **LEBEDEV LABS** — всегда капсом, без точки, одним написанием (логотипы, тексты, футер, OG-изображения). Full Stack Web Developer (Лебедев). Домен lebedev.club.
+Бренд: **LEBEDEV LABS** — всегда капсом, без точки, одним написанием (логотипы, тексты, футер, OG-изображения). Full Stack Web Developer (Лебедев Егор / Lebedev Egor). Домен lebedev.club.
 
 ## Статус проекта
 
