@@ -46,13 +46,10 @@ section {
 @keyframes drift2 { to { transform: translate(-80px, -60px) scale(1.15); } }
 @keyframes drift3 { to { transform: translate(-110px, 90px) scale(.9); } }
 
-/* ---------- dotgrid + progress line ---------- */
-.dotgrid {
-  position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .55;
-  background-image: radial-gradient(rgba(255, 255, 255, .07) 1px, transparent 1.4px);
-  background-size: 28px 28px;
-  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, #000 35%, transparent 100%);
-  mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, #000 35%, transparent 100%);
+/* ---------- starfield + progress line ---------- */
+.starfield {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 90% 70% at 50% 40%, #10121c 0%, var(--color-bg) 70%);
 }
 .progress-line {
   position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 10; pointer-events: none;

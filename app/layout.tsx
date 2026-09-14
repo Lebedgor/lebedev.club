@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { BackgroundFx } from "@/components/background-fx";
 import { LanguageProvider } from "@/components/language-provider";
 import { Nav } from "@/components/nav";
+import { StarField } from "@/components/star-field";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="font-sans">
         <LanguageProvider>
+          <StarField />
           <div className="glow g1" aria-hidden />
           <div className="glow g2" aria-hidden />
           <div className="glow g3" aria-hidden />
