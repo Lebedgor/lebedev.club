@@ -66,7 +66,7 @@ export const dict = {
             "Bilingual aquascaping competition platform built from scratch: participant and judge dashboards, role-based auth, competition seasons, entry submissions, configurable judging criteria, scoring, ranking and prize management. UA/EN localization, image processing, email notifications, Docker-based deployment.",
         },
         {
-          title: "Porsche Dnipro",
+          title: "Porsche Center Dnipro",
           kind: "Automotive Gallery",
           description:
             "Modern automotive gallery website for a Porsche dealership: vehicle gallery, car detail pages, responsive layouts, content management functionality and a server-side API. Clean premium UI and fast navigation across desktop and mobile.",
@@ -199,7 +199,7 @@ export const dict = {
             "Двуязычная платформа соревнований по акваскейпу с нуля: дашборды участников и судей, ролевая авторизация, сезоны соревнований, приём работ, настраиваемые критерии оценки, скоринг, рейтинги и управление призами. UA/EN локализация, обработка изображений, email-уведомления, деплой на Docker.",
         },
         {
-          title: "Porsche Dnipro",
+          title: "Porsche Center Dnipro",
           kind: "Авто-галерея",
           description:
             "Современный сайт-галерея для автосалона Porsche: галерея автомобилей, страницы моделей, адаптивные макеты, управление контентом и серверный API. Чистый премиальный UI и быстрая навигация на десктопе и мобильных.",

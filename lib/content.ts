@@ -12,7 +12,7 @@ export const projectsMeta: Array<{
     tags: ["React", "Node.js", "Express", "PostgreSQL", "Docker"],
   },
   {
-    title: "Porsche Dnipro",
+    title: "Porsche Center Dnipro",
     href: "https://porschednipro.com.ua/",
     image: "/images/porsche.png",
     tags: ["React", "Node.js", "Express", "MySQL", "Docker", "Premium UI"],
