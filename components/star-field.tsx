@@ -74,10 +74,13 @@ export function StarField() {
       const vel = Math.abs(window.scrollY - lastScrollY);
       lastScrollY = window.scrollY;
       scrollVel += (vel - scrollVel) * 0.1;
-      speedBoost += (Math.min(scrollVel / 30, 9) - speedBoost) * 0.013;
+      const target = Math.min(scrollVel / 30, 16);
+      // быстрый разгон при скролле, медленное затухание (инерция)
+      const k = target > speedBoost ? 0.045 : 0.013;
+      speedBoost += (target - speedBoost) * k;
 
       ctx.clearRect(0, 0, w, h);
-      const baseSpeed = 0.00012 + speedBoost * 0.0028;
+      const baseSpeed = 0.00012 + speedBoost * 0.0042;
       const cx = w / 2;
       const cy = h / 2;
       const idle = speedBoost < 1.2;
