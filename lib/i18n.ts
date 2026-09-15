@@ -98,9 +98,9 @@ export const dict = {
             "Built browser-side video compression and thumbnail generation before upload, plus media galleries, review voting, SEO landing pages and a Pro licensing system.",
           highlights: [
             "Client-side video compression",
-            "Media galleries & voting",
-            "SEO landing pages",
+            "Auto thumbnails & galleries",
             "Pro licensing system",
+            "SEO landing pages",
           ],
           result: "Production-ready commercial WooCommerce plugin.",
         },
@@ -111,10 +111,10 @@ export const dict = {
           solution:
             "Built a full-stack platform from scratch: role-based dashboards for participants, judges and admins, configurable judging criteria, scoring, ranking, prize management — with UA/EN localization and Docker deployment.",
           highlights: [
-            "Participant / judge / admin dashboards",
-            "Configurable scoring & ranking",
+            "Role-based dashboards",
+            "Configurable judging criteria",
             "UA/EN localization",
-            "Docker-based deployment",
+            "Docker deployment",
           ],
           result: "Live platform running full competition seasons.",
         },
@@ -126,7 +126,7 @@ export const dict = {
             "Built a React + Node.js/MySQL application: vehicle gallery, car detail pages, server-side API and CMS functionality — with a focus on premium UI and fast navigation.",
           highlights: [
             "Vehicle gallery & detail pages",
-            "Server-side API + CMS",
+            "Server API + CMS",
             "Premium responsive UI",
           ],
           result: "Production website for the dealership.",
@@ -138,11 +138,10 @@ export const dict = {
           solution:
             "Consolidated security monitoring into a single operations platform: incident triage queue with severity, status and an auditable timeline; live asset inventory with risk scores; a 0–100 security score linked to findings; role-based team access; notifications, API keys and webhooks.",
           highlights: [
-            "Incident triage & audit timeline",
-            "Asset monitoring with risk scores",
+            "Incident triage with audit trail",
+            "Asset inventory & risk scores",
             "0–100 security score",
-            "Role-based access & webhooks",
-            "Hand-rolled SVG charts, zero libraries",
+            "SVG charts, zero libraries",
           ],
           result: "A calm, information-dense security operations concept with real state changes on every screen.",
         },
@@ -153,11 +152,10 @@ export const dict = {
           solution:
             "Editorial typography (Instrument Serif + Inter), a warm paper palette and a cohesive interior photo pack. Asymmetric grids, frameless cards, hairlines. Full commerce flow: catalog with filters and sorting, product pages with a sticky purchase panel and gallery-linked variants, cart drawer + full cart page, search, localStorage persistence.",
           highlights: [
-            "Flow: catalog → product → variant → cart → checkout",
-            "Variants update gallery, price and description without reload",
-            "Journal section for content marketing",
-            "Accessibility: aria-live, keyboard, reduced-motion",
-            "~110 KB gzip, per-route SEO/OG",
+            "Full flow to checkout",
+            "Variants without reload",
+            "aria-live & keyboard a11y",
+            "~110 KB gzip",
           ],
           result: "A fast, accessible, visually coherent store with premium presentation on every screen.",
         },
@@ -168,11 +166,10 @@ export const dict = {
           solution:
             "A content-driven site where the design system itself is the product: ivory/ink/clay palette, Instrument Serif display type with Inter, hairline separators instead of cards, text links with arrows instead of CTA buttons. Projects, journal and services live in typed data files — a new project is a data entry, not new JSX. Motion is deliberately rare and slow, respecting prefers-reduced-motion.",
           highlights: [
-            "Services list with hover photo cards",
-            "Project pages as chapters: Context / Materials / Light",
-            "Custom art direction for 20+ generated images",
-            "Semantic HTML, labeled forms, keyboard navigation",
-            "Playwright pipeline: screenshots 375–1920px, zero console errors",
+            "Design system as the product",
+            "Projects from data files",
+            "20+ art-directed images",
+            "Zero console errors at 375–1920px",
           ],
           result: "An editorial-grade site that holds up at any viewport and passes automated visual checks.",
         },
@@ -343,9 +340,9 @@ export const dict = {
             "Сделал клиентское сжатие видео и генерацию превью до загрузки, плюс медиа-галереи, голосование за отзывы, SEO-страницы и систему Pro-лицензий.",
           highlights: [
             "Сжатие видео на клиенте",
-            "Медиа-галереи и голосование",
-            "SEO-страницы",
+            "Автопревью и галереи",
             "Система Pro-лицензий",
+            "SEO-страницы",
           ],
           result: "Готовый коммерческий плагин для WooCommerce.",
         },
@@ -356,8 +353,8 @@ export const dict = {
           solution:
             "Построил платформу с нуля: дашборды с ролевым доступом для участников, судей и админов, настраиваемые критерии, скоринг, рейтинги и управление призами — с UA/EN локализацией и деплоем на Docker.",
           highlights: [
-            "Дашборды участников / судей / админов",
-            "Настраиваемый скоринг и рейтинги",
+            "Дашборды по ролям",
+            "Настраиваемые критерии судейства",
             "UA/EN локализация",
             "Деплой на Docker",
           ],
@@ -383,11 +380,10 @@ export const dict = {
           solution:
             "Консолидировал мониторинг безопасности в единую операционную платформу: очередь разбора инцидентов с severity, статусами и аудиторским таймлайном; живой реестр активов с оценкой риска; скоринг 0–100, связанный с находками; ролевой доступ команды; уведомления, API-ключи и вебхуки.",
           highlights: [
-            "Разбор инцидентов и аудит-таймлайн",
-            "Мониторинг активов с оценкой риска",
-            "Скоринг безопасности 0–100",
-            "Роли, вебхуки, уведомления",
-            "Собственные SVG-графики без библиотек",
+            "Инциденты с аудит-таймлайном",
+            "Реестр активов и оценка рисков",
+            "Скоринг 0–100",
+            "SVG-графики без библиотек",
           ],
           result: "Спокойный, плотный концепт security-платформы с реальными изменениями состояния на каждом экране.",
         },
@@ -398,11 +394,10 @@ export const dict = {
           solution:
             "Редакционная типографика (Instrument Serif + Inter), тёплая «бумажная» палитра и цельный пак интерьерной фотографии. Асимметричные сетки, карточки без рамок, волосяные линии. Полный торговый флоу: каталог с фильтрами и сортировкой, карточки товара с липкой панелью покупки и вариантами, меняющими галерею, корзина-drawer и страница корзины, поиск, localStorage.",
           highlights: [
-            "Флоу: каталог → товар → вариант → корзина → чекаут",
-            "Варианты обновляют галерею, цену и описание без перезагрузки",
-            "Журнальный раздел для контент-маркетинга",
-            "Доступность: aria-live, клавиатура, reduced-motion",
-            "~110 KB gzip, SEO/OG для каждого роута",
+            "Полный флоу до чекаута",
+            "Варианты без перезагрузки",
+            "aria-live и клавиатура",
+            "~110 KB gzip",
           ],
           result: "Быстрый, доступный и визуально цельный магазин с премиальной подачей на каждом экране.",
         },
@@ -413,11 +408,10 @@ export const dict = {
           solution:
             "Контент-драйвен сайт, где дизайн-система — сам продукт: палитра ivory/ink/clay, Instrument Serif + Inter, волосяные линии вместо карточек, текстовые ссылки со стрелками вместо CTA-кнопок. Проекты, журнал и услуги живут в типизированных файлах данных — новый проект это запись данных, а не новый JSX. Движение редкое и медленное, с уважением к prefers-reduced-motion.",
           highlights: [
-            "Список услуг с фото-карточками на hover",
-            "Страницы проектов главами: Context / Materials / Light",
-            "Кастомный арт-дирекшн для 20+ сгенерированных изображений",
-            "Семантический HTML, labeled-формы, навигация с клавиатуры",
-            "Playwright-конвейер: скриншоты 375–1920px, ноль ошибок консоли",
+            "Дизайн-система как продукт",
+            "Проекты из файлов данных",
+            "20+ изображений с арт-дирекшном",
+            "Ноль ошибок консоли на 375–1920px",
           ],
           result: "Редакционный сайт, который держит любой вьюпорт и проходит автоматические визуальные проверки.",
         },
