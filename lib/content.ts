@@ -36,6 +36,33 @@ export const projectsMeta = [
     metric: "800+ sales · 50+ customer reviews",
     tags: ["OpenCart", "PHP", "JavaScript", "SEO"],
   },
+  {
+    num: "05",
+    title: "Atelier №7",
+    kind: "Editorial Website · Concept",
+    href: "https://atelier-7-lebedev-labs.vercel.app/",
+    image: "/images/atelier.png",
+    caseStudy: true,
+    tags: ["React", "Vite", "Tailwind", "Framer Motion"],
+  },
+  {
+    num: "06",
+    title: "NORDEN",
+    kind: "E-commerce · Concept",
+    href: "https://norden-lebedev-labs.vercel.app/",
+    image: "/images/norden.png",
+    caseStudy: true,
+    tags: ["React", "Tailwind", "Framer Motion", "Vercel"],
+  },
+  {
+    num: "07",
+    title: "SENTRY",
+    kind: "Security Platform · Concept",
+    href: "https://sentry-lebedev-labs.vercel.app/",
+    image: "/images/sentry.png",
+    caseStudy: true,
+    tags: ["React", "TypeScript", "Tailwind", "SVG Charts"],
+  },
 ] as const;
 
 export const caseStudiesMeta = [
@@ -56,6 +83,24 @@ export const caseStudiesMeta = [
     href: "https://porschednipro.com.ua/",
     image: "/images/porsche.png",
     builtWith: "React · Node.js · MySQL",
+  },
+  {
+    project: "sentry",
+    href: "https://sentry-lebedev-labs.vercel.app/",
+    image: "/images/sentry-2.png",
+    builtWith: "React 19 · TypeScript · Vite · Tailwind CSS 4 · Custom SVG charts",
+  },
+  {
+    project: "norden",
+    href: "https://norden-lebedev-labs.vercel.app/",
+    image: "/images/norden-2.png",
+    builtWith: "React 19 · Vite · TypeScript · Tailwind CSS 4 · Framer Motion · React Router · Vercel",
+  },
+  {
+    project: "atelier",
+    href: "https://atelier-7-lebedev-labs.vercel.app/",
+    image: "/images/atelier-2.png",
+    builtWith: "React 19 · TypeScript · Vite · Tailwind CSS 4 · Framer Motion · React Router 7",
   },
 ] as const;
 

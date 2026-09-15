@@ -44,6 +44,21 @@ export const dict = {
           kind: "OpenCart Module",
           description: "A commercial review system for OpenCart with 800+ sales.",
         },
+        {
+          title: "Atelier №7",
+          kind: "Editorial Website · Concept",
+          description: "An editorial-grade website for an architecture studio that reads like a printed monograph.",
+        },
+        {
+          title: "NORDEN",
+          kind: "E-commerce · Concept",
+          description: "A Scandinavian home-goods store where the shop feels like a design magazine.",
+        },
+        {
+          title: "SENTRY",
+          kind: "Security Platform · Concept",
+          description: "A security operations platform concept: incidents, assets, scores and alerts in one calm interface.",
+        },
       ],
     },
     capabilities: {
@@ -115,6 +130,51 @@ export const dict = {
             "Premium responsive UI",
           ],
           result: "Production website for the dealership.",
+        },
+        {
+          title: "SENTRY",
+          challenge:
+            "Security teams drown in signals: leaked keys, suspicious logins, misconfigured infrastructure — scattered across scanners, identity providers and cloud logs. Nobody can answer: what's our security posture right now and what needs to be done first.",
+          solution:
+            "Consolidated security monitoring into a single operations platform: incident triage queue with severity, status and an auditable timeline; live asset inventory with risk scores; a 0–100 security score linked to findings; role-based team access; notifications, API keys and webhooks.",
+          highlights: [
+            "Incident triage & audit timeline",
+            "Asset monitoring with risk scores",
+            "0–100 security score",
+            "Role-based access & webhooks",
+            "Hand-rolled SVG charts, zero libraries",
+          ],
+          result: "A calm, information-dense security operations concept with real state changes on every screen.",
+        },
+        {
+          title: "NORDEN",
+          challenge:
+            "A store for a premium Scandinavian home-goods brand that sells through atmosphere, not discounts — a shop that feels like a design magazine while keeping the path from first screen to cart short and obvious.",
+          solution:
+            "Editorial typography (Instrument Serif + Inter), a warm paper palette and a cohesive interior photo pack. Asymmetric grids, frameless cards, hairlines. Full commerce flow: catalog with filters and sorting, product pages with a sticky purchase panel and gallery-linked variants, cart drawer + full cart page, search, localStorage persistence.",
+          highlights: [
+            "Flow: catalog → product → variant → cart → checkout",
+            "Variants update gallery, price and description without reload",
+            "Journal section for content marketing",
+            "Accessibility: aria-live, keyboard, reduced-motion",
+            "~110 KB gzip, per-route SEO/OG",
+          ],
+          result: "A fast, accessible, visually coherent store with premium presentation on every screen.",
+        },
+        {
+          title: "Atelier №7",
+          challenge:
+            "Architecture studios sell atmosphere, and most websites kill it with generic agency layouts — card grids, banners, rounded buttons. The goal: a site that reads like a printed monograph — photography first, generous whitespace, slow editorial rhythm — while staying a fast, responsive web product.",
+          solution:
+            "A content-driven site where the design system itself is the product: ivory/ink/clay palette, Instrument Serif display type with Inter, hairline separators instead of cards, text links with arrows instead of CTA buttons. Projects, journal and services live in typed data files — a new project is a data entry, not new JSX. Motion is deliberately rare and slow, respecting prefers-reduced-motion.",
+          highlights: [
+            "Services list with hover photo cards",
+            "Project pages as chapters: Context / Materials / Light",
+            "Custom art direction for 20+ generated images",
+            "Semantic HTML, labeled forms, keyboard navigation",
+            "Playwright pipeline: screenshots 375–1920px, zero console errors",
+          ],
+          result: "An editorial-grade site that holds up at any viewport and passes automated visual checks.",
         },
       ],
     },
@@ -229,6 +289,21 @@ export const dict = {
           kind: "Модуль OpenCart",
           description: "Коммерческая система отзывов для OpenCart — 800+ продаж.",
         },
+        {
+          title: "Atelier №7",
+          kind: "Редакционный сайт · Концепт",
+          description: "Редакционный сайт для архитектурного бюро, который читается как печатная монография.",
+        },
+        {
+          title: "NORDEN",
+          kind: "Интернет-магазин · Концепт",
+          description: "Магазин скандинавских товаров для дома, где витрина — как дизайн-журнал.",
+        },
+        {
+          title: "SENTRY",
+          kind: "Платформа безопасности · Концепт",
+          description: "Концепт платформы кибербезопасности: инциденты, активы, скоринг и алерты в одном интерфейсе.",
+        },
       ],
     },
     capabilities: {
@@ -300,6 +375,51 @@ export const dict = {
             "Премиальный адаптивный UI",
           ],
           result: "Продакшен-сайт автосалона.",
+        },
+        {
+          title: "SENTRY",
+          challenge:
+            "Команды безопасности тонут в сигналах: утёкшие ключи, подозрительные входы, неверные конфигурации — разбросаны по сканерам, identity-провайдерам и облачным логам. Никто не может ответить: каков наш уровень защиты сейчас и что делать в первую очередь.",
+          solution:
+            "Консолидировал мониторинг безопасности в единую операционную платформу: очередь разбора инцидентов с severity, статусами и аудиторским таймлайном; живой реестр активов с оценкой риска; скоринг 0–100, связанный с находками; ролевой доступ команды; уведомления, API-ключи и вебхуки.",
+          highlights: [
+            "Разбор инцидентов и аудит-таймлайн",
+            "Мониторинг активов с оценкой риска",
+            "Скоринг безопасности 0–100",
+            "Роли, вебхуки, уведомления",
+            "Собственные SVG-графики без библиотек",
+          ],
+          result: "Спокойный, плотный концепт security-платформы с реальными изменениями состояния на каждом экране.",
+        },
+        {
+          title: "NORDEN",
+          challenge:
+            "Магазин для премиального скандинавского бренда товаров для дома, который продаёт атмосферой, а не скидками — витрина как дизайн-журнал, но путь от первого экрана до корзины короткий и очевидный.",
+          solution:
+            "Редакционная типографика (Instrument Serif + Inter), тёплая «бумажная» палитра и цельный пак интерьерной фотографии. Асимметричные сетки, карточки без рамок, волосяные линии. Полный торговый флоу: каталог с фильтрами и сортировкой, карточки товара с липкой панелью покупки и вариантами, меняющими галерею, корзина-drawer и страница корзины, поиск, localStorage.",
+          highlights: [
+            "Флоу: каталог → товар → вариант → корзина → чекаут",
+            "Варианты обновляют галерею, цену и описание без перезагрузки",
+            "Журнальный раздел для контент-маркетинга",
+            "Доступность: aria-live, клавиатура, reduced-motion",
+            "~110 KB gzip, SEO/OG для каждого роута",
+          ],
+          result: "Быстрый, доступный и визуально цельный магазин с премиальной подачей на каждом экране.",
+        },
+        {
+          title: "Atelier №7",
+          challenge:
+            "Архитектурные бюро продают атмосферу, а типовые сайты убивают её шаблонным агентским дизайном — сетки карточек, баннеры, скруглённые кнопки. Цель — сайт, который читается как печатная монография: фотография, воздух, медленный редакционный ритм — и при этом быстрый, адаптивный продукт.",
+          solution:
+            "Контент-драйвен сайт, где дизайн-система — сам продукт: палитра ivory/ink/clay, Instrument Serif + Inter, волосяные линии вместо карточек, текстовые ссылки со стрелками вместо CTA-кнопок. Проекты, журнал и услуги живут в типизированных файлах данных — новый проект это запись данных, а не новый JSX. Движение редкое и медленное, с уважением к prefers-reduced-motion.",
+          highlights: [
+            "Список услуг с фото-карточками на hover",
+            "Страницы проектов главами: Context / Materials / Light",
+            "Кастомный арт-дирекшн для 20+ сгенерированных изображений",
+            "Семантический HTML, labeled-формы, навигация с клавиатуры",
+            "Playwright-конвейер: скриншоты 375–1920px, ноль ошибок консоли",
+          ],
+          result: "Редакционный сайт, который держит любой вьюпорт и проходит автоматические визуальные проверки.",
         },
       ],
     },
