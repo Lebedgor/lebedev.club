@@ -67,10 +67,16 @@ export const projectsMeta = [
 
 export const caseStudiesMeta = [
   {
-    project: "pvr",
-    href: "https://pv-reviews.site/",
-    image: "/images/pvr.png",
-    builtWith: "WordPress · WooCommerce · PHP · JavaScript",
+    project: "norden",
+    href: "https://norden-lebedev-labs.vercel.app/",
+    image: "/images/norden-2.png",
+    builtWith: "React 19 · Vite · TypeScript · Tailwind CSS 4 · Framer Motion · React Router · Vercel",
+  },
+  {
+    project: "atelier",
+    href: "https://atelier-7-lebedev-labs.vercel.app/",
+    image: "/images/atelier-2.png",
+    builtWith: "React 19 · TypeScript · Vite · Tailwind CSS 4 · Framer Motion · React Router 7",
   },
   {
     project: "aquascape",
@@ -91,16 +97,10 @@ export const caseStudiesMeta = [
     builtWith: "React 19 · TypeScript · Vite · Tailwind CSS 4 · Custom SVG charts",
   },
   {
-    project: "norden",
-    href: "https://norden-lebedev-labs.vercel.app/",
-    image: "/images/norden-2.png",
-    builtWith: "React 19 · Vite · TypeScript · Tailwind CSS 4 · Framer Motion · React Router · Vercel",
-  },
-  {
-    project: "atelier",
-    href: "https://atelier-7-lebedev-labs.vercel.app/",
-    image: "/images/atelier-2.png",
-    builtWith: "React 19 · TypeScript · Vite · Tailwind CSS 4 · Framer Motion · React Router 7",
+    project: "pvr",
+    href: "https://pv-reviews.site/",
+    image: "/images/pvr.png",
+    builtWith: "WordPress · WooCommerce · PHP · JavaScript",
   },
 ] as const;
 

@@ -90,62 +90,7 @@ export const dict = {
         result: "Result",
       },
       items: [
-        {
-          title: "PVR Media Reviews",
-          challenge:
-            "WooCommerce review systems usually process video uploads server-side — slow, expensive and heavy for the store hosting.",
-          solution:
-            "Built browser-side video compression and thumbnail generation before upload, plus media galleries, review voting, SEO landing pages and a Pro licensing system.",
-          highlights: [
-            "Client-side video compression",
-            "Auto thumbnails & galleries",
-            "Pro licensing system",
-            "SEO landing pages",
-          ],
-          result: "Production-ready commercial WooCommerce plugin.",
-        },
-        {
-          title: "Aquascape Competition Platform",
-          challenge:
-            "Running aquascaping competitions requires transparent judging: many participants, multiple criteria, seasons and a bilingual audience.",
-          solution:
-            "Built a full-stack platform from scratch: role-based dashboards for participants, judges and admins, configurable judging criteria, scoring, ranking, prize management — with UA/EN localization and Docker deployment.",
-          highlights: [
-            "Role-based dashboards",
-            "Configurable judging criteria",
-            "UA/EN localization",
-            "Docker deployment",
-          ],
-          result: "Live platform running full competition seasons.",
-        },
-        {
-          title: "Porsche Center Dnipro",
-          challenge:
-            "A Porsche dealership needed a premium catalogue website with detailed car pages and easy content management.",
-          solution:
-            "Built a React + Node.js/MySQL application: vehicle gallery, car detail pages, server-side API and CMS functionality — with a focus on premium UI and fast navigation.",
-          highlights: [
-            "Vehicle gallery & detail pages",
-            "Server API + CMS",
-            "Premium responsive UI",
-          ],
-          result: "Production website for the dealership.",
-        },
-        {
-          title: "SENTRY",
-          challenge:
-            "Security teams drown in signals: leaked keys, suspicious logins, misconfigured infrastructure — scattered across scanners, identity providers and cloud logs. Nobody can answer: what's our security posture right now and what needs to be done first.",
-          solution:
-            "Consolidated security monitoring into a single operations platform: incident triage queue with severity, status and an auditable timeline; live asset inventory with risk scores; a 0–100 security score linked to findings; role-based team access; notifications, API keys and webhooks.",
-          highlights: [
-            "Incident triage with audit trail",
-            "Asset inventory & risk scores",
-            "0–100 security score",
-            "SVG charts, zero libraries",
-          ],
-          result: "A calm, information-dense security operations concept with real state changes on every screen.",
-        },
-        {
+{
           title: "NORDEN",
           challenge:
             "A store for a premium Scandinavian home-goods brand that sells through atmosphere, not discounts — a shop that feels like a design magazine while keeping the path from first screen to cart short and obvious.",
@@ -158,8 +103,8 @@ export const dict = {
             "~110 KB gzip",
           ],
           result: "A fast, accessible, visually coherent store with premium presentation on every screen.",
-        },
-        {
+        }
+{
           title: "Atelier №7",
           challenge:
             "Architecture studios sell atmosphere, and most websites kill it with generic agency layouts — card grids, banners, rounded buttons. The goal: a site that reads like a printed monograph — photography first, generous whitespace, slow editorial rhythm — while staying a fast, responsive web product.",
@@ -172,8 +117,62 @@ export const dict = {
             "Zero console errors at 375–1920px",
           ],
           result: "An editorial-grade site that holds up at any viewport and passes automated visual checks.",
-        },
-      ],
+        }
+{
+          title: "Aquascape Competition Platform",
+          challenge:
+            "Running aquascaping competitions requires transparent judging: many participants, multiple criteria, seasons and a bilingual audience.",
+          solution:
+            "Built a full-stack platform from scratch: role-based dashboards for participants, judges and admins, configurable judging criteria, scoring, ranking, prize management — with UA/EN localization and Docker deployment.",
+          highlights: [
+            "Role-based dashboards",
+            "Configurable judging criteria",
+            "UA/EN localization",
+            "Docker deployment",
+          ],
+          result: "Live platform running full competition seasons.",
+        }
+{
+          title: "Porsche Center Dnipro",
+          challenge:
+            "A Porsche dealership needed a premium catalogue website with detailed car pages and easy content management.",
+          solution:
+            "Built a React + Node.js/MySQL application: vehicle gallery, car detail pages, server-side API and CMS functionality — with a focus on premium UI and fast navigation.",
+          highlights: [
+            "Vehicle gallery & detail pages",
+            "Server API + CMS",
+            "Premium responsive UI",
+          ],
+          result: "Production website for the dealership.",
+        }
+{
+          title: "SENTRY",
+          challenge:
+            "Security teams drown in signals: leaked keys, suspicious logins, misconfigured infrastructure — scattered across scanners, identity providers and cloud logs. Nobody can answer: what's our security posture right now and what needs to be done first.",
+          solution:
+            "Consolidated security monitoring into a single operations platform: incident triage queue with severity, status and an auditable timeline; live asset inventory with risk scores; a 0–100 security score linked to findings; role-based team access; notifications, API keys and webhooks.",
+          highlights: [
+            "Incident triage with audit trail",
+            "Asset inventory & risk scores",
+            "0–100 security score",
+            "SVG charts, zero libraries",
+          ],
+          result: "A calm, information-dense security operations concept with real state changes on every screen.",
+        }
+{
+          title: "PVR Media Reviews",
+          challenge:
+            "WooCommerce review systems usually process video uploads server-side — slow, expensive and heavy for the store hosting.",
+          solution:
+            "Built browser-side video compression and thumbnail generation before upload, plus media galleries, review voting, SEO landing pages and a Pro licensing system.",
+          highlights: [
+            "Client-side video compression",
+            "Auto thumbnails & galleries",
+            "Pro licensing system",
+            "SEO landing pages",
+          ],
+          result: "Production-ready commercial WooCommerce plugin.",
+        } ,
     },
     lab: {
       eyebrow: "Lab",
@@ -332,62 +331,7 @@ export const dict = {
         result: "Результат",
       },
       items: [
-        {
-          title: "PVR Media Reviews",
-          challenge:
-            "Системы отзывов WooCommerce обычно обрабатывают видео на сервере — медленно, дорого и тяжело для хостинга магазина.",
-          solution:
-            "Сделал клиентское сжатие видео и генерацию превью до загрузки, плюс медиа-галереи, голосование за отзывы, SEO-страницы и систему Pro-лицензий.",
-          highlights: [
-            "Сжатие видео на клиенте",
-            "Автопревью и галереи",
-            "Система Pro-лицензий",
-            "SEO-страницы",
-          ],
-          result: "Готовый коммерческий плагин для WooCommerce.",
-        },
-        {
-          title: "Aquascape Competition Platform",
-          challenge:
-            "Проведение соревнований по акваскейпу требует прозрачного судейства: много участников, разные критерии, сезоны и двуязычная аудитория.",
-          solution:
-            "Построил платформу с нуля: дашборды с ролевым доступом для участников, судей и админов, настраиваемые критерии, скоринг, рейтинги и управление призами — с UA/EN локализацией и деплоем на Docker.",
-          highlights: [
-            "Дашборды по ролям",
-            "Настраиваемые критерии судейства",
-            "UA/EN локализация",
-            "Деплой на Docker",
-          ],
-          result: "Платформа проводит полноценные сезоны соревнований.",
-        },
-        {
-          title: "Porsche Center Dnipro",
-          challenge:
-            "Автосалону Porsche нужен был премиальный сайт-каталог с детальными страницами машин и удобным управлением контентом.",
-          solution:
-            "Сделал приложение на React + Node.js/MySQL: галерея автомобилей, страницы моделей, серверный API и функциональность CMS — с фокусом на премиальный UI и быструю навигацию.",
-          highlights: [
-            "Галерея и страницы моделей",
-            "Серверный API + CMS",
-            "Премиальный адаптивный UI",
-          ],
-          result: "Продакшен-сайт автосалона.",
-        },
-        {
-          title: "SENTRY",
-          challenge:
-            "Команды безопасности тонут в сигналах: утёкшие ключи, подозрительные входы, неверные конфигурации — разбросаны по сканерам, identity-провайдерам и облачным логам. Никто не может ответить: каков наш уровень защиты сейчас и что делать в первую очередь.",
-          solution:
-            "Консолидировал мониторинг безопасности в единую операционную платформу: очередь разбора инцидентов с severity, статусами и аудиторским таймлайном; живой реестр активов с оценкой риска; скоринг 0–100, связанный с находками; ролевой доступ команды; уведомления, API-ключи и вебхуки.",
-          highlights: [
-            "Инциденты с аудит-таймлайном",
-            "Реестр активов и оценка рисков",
-            "Скоринг 0–100",
-            "SVG-графики без библиотек",
-          ],
-          result: "Спокойный, плотный концепт security-платформы с реальными изменениями состояния на каждом экране.",
-        },
-        {
+{
           title: "NORDEN",
           challenge:
             "Магазин для премиального скандинавского бренда товаров для дома, который продаёт атмосферой, а не скидками — витрина как дизайн-журнал, но путь от первого экрана до корзины короткий и очевидный.",
@@ -400,8 +344,8 @@ export const dict = {
             "~110 KB gzip",
           ],
           result: "Быстрый, доступный и визуально цельный магазин с премиальной подачей на каждом экране.",
-        },
-        {
+        }
+{
           title: "Atelier №7",
           challenge:
             "Архитектурные бюро продают атмосферу, а типовые сайты убивают её шаблонным агентским дизайном — сетки карточек, баннеры, скруглённые кнопки. Цель — сайт, который читается как печатная монография: фотография, воздух, медленный редакционный ритм — и при этом быстрый, адаптивный продукт.",
@@ -414,8 +358,62 @@ export const dict = {
             "Ноль ошибок консоли на 375–1920px",
           ],
           result: "Редакционный сайт, который держит любой вьюпорт и проходит автоматические визуальные проверки.",
-        },
-      ],
+        }
+{
+          title: "Aquascape Competition Platform",
+          challenge:
+            "Проведение соревнований по акваскейпу требует прозрачного судейства: много участников, разные критерии, сезоны и двуязычная аудитория.",
+          solution:
+            "Построил платформу с нуля: дашборды с ролевым доступом для участников, судей и админов, настраиваемые критерии, скоринг, рейтинги и управление призами — с UA/EN локализацией и деплоем на Docker.",
+          highlights: [
+            "Дашборды по ролям",
+            "Настраиваемые критерии судейства",
+            "UA/EN локализация",
+            "Деплой на Docker",
+          ],
+          result: "Платформа проводит полноценные сезоны соревнований.",
+        }
+{
+          title: "Porsche Center Dnipro",
+          challenge:
+            "Автосалону Porsche нужен был премиальный сайт-каталог с детальными страницами машин и удобным управлением контентом.",
+          solution:
+            "Сделал приложение на React + Node.js/MySQL: галерея автомобилей, страницы моделей, серверный API и функциональность CMS — с фокусом на премиальный UI и быструю навигацию.",
+          highlights: [
+            "Галерея и страницы моделей",
+            "Серверный API + CMS",
+            "Премиальный адаптивный UI",
+          ],
+          result: "Продакшен-сайт автосалона.",
+        }
+{
+          title: "SENTRY",
+          challenge:
+            "Команды безопасности тонут в сигналах: утёкшие ключи, подозрительные входы, неверные конфигурации — разбросаны по сканерам, identity-провайдерам и облачным логам. Никто не может ответить: каков наш уровень защиты сейчас и что делать в первую очередь.",
+          solution:
+            "Консолидировал мониторинг безопасности в единую операционную платформу: очередь разбора инцидентов с severity, статусами и аудиторским таймлайном; живой реестр активов с оценкой риска; скоринг 0–100, связанный с находками; ролевой доступ команды; уведомления, API-ключи и вебхуки.",
+          highlights: [
+            "Инциденты с аудит-таймлайном",
+            "Реестр активов и оценка рисков",
+            "Скоринг 0–100",
+            "SVG-графики без библиотек",
+          ],
+          result: "Спокойный, плотный концепт security-платформы с реальными изменениями состояния на каждом экране.",
+        }
+{
+          title: "PVR Media Reviews",
+          challenge:
+            "Системы отзывов WooCommerce обычно обрабатывают видео на сервере — медленно, дорого и тяжело для хостинга магазина.",
+          solution:
+            "Сделал клиентское сжатие видео и генерацию превью до загрузки, плюс медиа-галереи, голосование за отзывы, SEO-страницы и систему Pro-лицензий.",
+          highlights: [
+            "Сжатие видео на клиенте",
+            "Автопревью и галереи",
+            "Система Pro-лицензий",
+            "SEO-страницы",
+          ],
+          result: "Готовый коммерческий плагин для WooCommerce.",
+        } ,
     },
     lab: {
       eyebrow: "Лаборатория",
