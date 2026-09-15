@@ -7,7 +7,7 @@ const statsLabels = [
   { en: "years of web development", ru: "лет в веб-разработке" },
   { en: "sales of my own extensions", ru: "продаж собственных расширений" },
   { en: "verified customer reviews", ru: "проверенных отзывов клиентов" },
-  { en: "platforms: web, mobile, desktop", ru: "платформы: веб, мобайл, десктоп" },
+  { en: "commercial products launched", ru: "собственных коммерческих продукта" },
 ];
 
 export function Hero() {
@@ -62,7 +62,7 @@ export function Hero() {
             }}
           >
             <div className="text-[clamp(26px,3.4vw,38px)] font-extrabold tracking-tight">
-              <span className="t-white">{["8", "800", "50", "3"][i]}</span>
+              <span className="t-white">{["8", "800", "50", "2"][i]}</span>
               <span
                 className="not-italic"
                 style={{

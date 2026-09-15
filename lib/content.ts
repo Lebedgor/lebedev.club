@@ -58,6 +58,7 @@ export const skills = [
   "OpenCart",
   "WordPress",
   "WooCommerce",
+  "Shopify",
   "PHP",
   "JavaScript",
   "React",

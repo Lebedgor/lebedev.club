@@ -5,18 +5,18 @@ import { Tilt } from "@/components/tilt";
 import { useLang } from "@/components/language-provider";
 
 const icons: Record<string, React.ReactNode> = {
+  globe: (
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+  ),
   store: (
     <svg viewBox="0 0 24 24">
       <path d="M3 9l1.5-5h15L21 9" />
       <path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z" />
       <path d="M9 20v-6h6v6" />
-    </svg>
-  ),
-  plug: (
-    <svg viewBox="0 0 24 24">
-      <path d="M12 22V12" />
-      <path d="M12 12 8 8l4-4 4 4-4 4" />
-      <rect x="3" y="14" width="18" height="7" rx="2" />
     </svg>
   ),
   layers: (
@@ -26,16 +26,9 @@ const icons: Record<string, React.ReactNode> = {
       <path d="m2 12 10 5 10-5" />
     </svg>
   ),
-  devices: (
-    <svg viewBox="0 0 24 24">
-      <rect x="5" y="2" width="14" height="20" rx="2" />
-      <path d="M12 18h.01" />
-      <path d="M7 5h10v11H7z" />
-    </svg>
-  ),
 };
 
-const iconKeys = ["store", "plug", "layers", "devices"];
+const iconKeys = ["globe", "store", "layers"];
 
 export function Expertise() {
   const { t } = useLang();

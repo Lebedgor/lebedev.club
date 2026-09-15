@@ -29,27 +29,22 @@ export const dict = {
       eyebrow: "Expertise",
       pre: "What I ",
       grad: "build",
-      sub: "Four directions, one standard: production quality, performance and long-term support.",
+      sub: "Three directions, one standard: production quality, performance and long-term support.",
       items: [
+        {
+          title: "Websites",
+          description:
+            "Custom websites from idea to launch: design, development, content management and deployment. WordPress, React — clean UI and fast loading.",
+        },
         {
           title: "E-commerce",
           description:
-            "OpenCart, WordPress & WooCommerce: store creation, custom design, support, complex customizations and integrations.",
+            "Online stores on OpenCart, WooCommerce and Shopify: creation, custom modules and design, migrations, ongoing support and integrations.",
         },
         {
-          title: "Plugins & Modules",
+          title: "Full-Stack Web Apps",
           description:
-            "Commercial extensions from scratch: EX Reviews for OpenCart, PVR Media Reviews for WooCommerce — architecture, licensing, SEO.",
-        },
-        {
-          title: "Full-Stack Apps",
-          description:
-            "Modern web applications built end-to-end: React, Node.js, Express, Prisma, PostgreSQL — frontend and backend from scratch.",
-        },
-        {
-          title: "Cross-Platform",
-          description:
-            "Applications for Android, iOS and Windows — from idea to publication, sharing the same product thinking.",
+            "Web applications built end-to-end with React, Node.js, PostgreSQL: auth, dashboards, REST APIs, payments and production deployments.",
         },
       ],
     },
@@ -95,7 +90,7 @@ export const dict = {
       paragraphs: [
         "Web developer with 8+ years of experience building and maintaining e-commerce websites and custom web solutions. My main expertise is OpenCart, WordPress and WooCommerce — custom module and plugin development, complex customizations, API integrations and troubleshooting.",
         "I'm the creator of Extended Reviews (EX Reviews) for OpenCart — a commercial extension that reached 800+ sales across multiple marketplaces and direct sales, with 249+ purchases and 50+ customer reviews on a single marketplace. I later rebuilt this product for WordPress and WooCommerce as PVR Media Reviews.",
-        "Today I also build modern full-stack web applications using React, Node.js, Express, Prisma and PostgreSQL — both frontend and backend from scratch — plus applications for Android, iOS and Windows.",
+        "Today I also build modern full-stack web applications using React, Node.js, Express, Prisma and PostgreSQL — both frontend and backend from scratch.",
       ],
       timeline: [
         {
@@ -162,27 +157,22 @@ export const dict = {
       eyebrow: "Направления",
       pre: "Что я ",
       grad: "делаю",
-      sub: "Четыре направления, один стандарт: продакшен-качество, производительность и долгосрочная поддержка.",
+      sub: "Три направления, один стандарт: продакшен-качество, производительность и долгосрочная поддержка.",
       items: [
         {
-          title: "E-commerce",
+          title: "Сайты",
           description:
-            "OpenCart, WordPress и WooCommerce: создание магазинов, кастомный дизайн, поддержка, сложные доработки и интеграции.",
+            "Кастомные сайты от идеи до запуска: дизайн, разработка, управление контентом и деплой. WordPress, React — чистый интерфейс и быстрая загрузка.",
         },
         {
-          title: "Плагины и модули",
+          title: "Интернет-магазины",
           description:
-            "Коммерческие расширения с нуля: EX Reviews для OpenCart, PVR Media Reviews для WooCommerce — архитектура, лицензии, SEO.",
+            "Магазины на OpenCart, WooCommerce и Shopify: создание, кастомные модули и дизайн, миграции, поддержка и интеграции.",
         },
         {
           title: "Full-Stack приложения",
           description:
-            "Современные веб-приложения целиком: React, Node.js, Express, Prisma, PostgreSQL — фронтенд и бэкенд с нуля.",
-        },
-        {
-          title: "Кроссплатформа",
-          description:
-            "Приложения для Android, iOS и Windows — от идеи до публикации, с одинаковым продуктовым мышлением.",
+            "Веб-приложения целиком на React, Node.js, PostgreSQL: авторизация, дашборды, REST API, платежи и продакшен-деплой.",
         },
       ],
     },
@@ -228,7 +218,7 @@ export const dict = {
       paragraphs: [
         "Веб-разработчик с 8+ годами опыта создания и поддержки e-commerce сайтов и кастомных веб-решений. Основная экспертиза — OpenCart, WordPress и WooCommerce: разработка модулей и плагинов, сложные доработки, API-интеграции и troubleshooting.",
         "Я создатель Extended Reviews (EX Reviews) для OpenCart — коммерческого расширения с 800+ продажами на нескольких маркетплейсах и прямых продажах, 249+ покупками и 50+ отзывами на одной из площадок. Позже переиздал продукт для WordPress и WooCommerce как PVR Media Reviews.",
-        "Сегодня также создаю современные full-stack приложения на React, Node.js, Express, Prisma и PostgreSQL — фронтенд и бэкенд с нуля — плюс приложения для Android, iOS и Windows.",
+        "Сегодня также создаю современные full-stack приложения на React, Node.js, Express, Prisma и PostgreSQL — фронтенд и бэкенд с нуля.",
       ],
       timeline: [
         {

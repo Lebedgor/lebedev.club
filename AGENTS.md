@@ -51,6 +51,7 @@
 Структура (one-page): Hero → статистика → направления (Expertise) → проекты → опыт/About → контакты → футер. Языки RU + EN (в макете пока EN).
 
 Позиционирование: личный бренд + привлечение клиентов + поиск работы. CTA: «View projects», «Contact me».
+Фокус (решение пользователя): **Websites · E-commerce · Full-Stack Web Apps**. Android/iOS/Windows на главной НЕ показывать (размывают позиционирование; уместно в CV/Upwork). Shopify добавлен в стек по решению пользователя.
 
 Реальный контент (язык оригинала — EN):
 - Проекты (4): Aquascape Competition Platform (React/Node/PostgreSQL, UA/EN, Docker); Porsche Dnipro (React/Node/MySQL, автосалон); PVR Media Reviews (WooCommerce-плагин фото/видео-отзывов, лицензии); Extended Reviews для OpenCart (800+ продаж, 50+ отзывов)
