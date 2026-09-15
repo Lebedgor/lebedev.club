@@ -1,17 +1,25 @@
+import { About } from "@/components/about";
+import { Capabilities } from "@/components/capabilities";
+import { CaseStudies } from "@/components/case-studies";
 import { Contact } from "@/components/contact";
-import { Experience } from "@/components/experience";
-import { Expertise } from "@/components/expertise";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
-import { Projects } from "@/components/projects";
+import { HowIWork } from "@/components/how-i-work";
+import { Lab } from "@/components/lab";
+import { Numbers } from "@/components/numbers";
+import { Work } from "@/components/work";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <Expertise />
-      <Projects />
-      <Experience />
+      <Work />
+      <Capabilities />
+      <Numbers />
+      <CaseStudies />
+      <Lab />
+      <About />
+      <HowIWork />
       <Contact />
       <Footer />
     </main>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import { BackgroundFx } from "@/components/background-fx";
 import { LanguageProvider } from "@/components/language-provider";
 import { Nav } from "@/components/nav";
@@ -7,6 +7,7 @@ import { StarField } from "@/components/star-field";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
 
 export const metadata: Metadata = {
   title: "LEBEDEV LABS — Full Stack Web Developer",
@@ -18,7 +19,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="font-sans">
         <LanguageProvider>
           <StarField />
