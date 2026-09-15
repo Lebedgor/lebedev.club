@@ -103,8 +103,8 @@ export const dict = {
             "~110 KB gzip",
           ],
           result: "A fast, accessible, visually coherent store with premium presentation on every screen.",
-        }
-{
+        },
+        {
           title: "Atelier №7",
           challenge:
             "Architecture studios sell atmosphere, and most websites kill it with generic agency layouts — card grids, banners, rounded buttons. The goal: a site that reads like a printed monograph — photography first, generous whitespace, slow editorial rhythm — while staying a fast, responsive web product.",
@@ -117,8 +117,8 @@ export const dict = {
             "Zero console errors at 375–1920px",
           ],
           result: "An editorial-grade site that holds up at any viewport and passes automated visual checks.",
-        }
-{
+        },
+        {
           title: "Aquascape Competition Platform",
           challenge:
             "Running aquascaping competitions requires transparent judging: many participants, multiple criteria, seasons and a bilingual audience.",
@@ -131,8 +131,8 @@ export const dict = {
             "Docker deployment",
           ],
           result: "Live platform running full competition seasons.",
-        }
-{
+        },
+        {
           title: "Porsche Center Dnipro",
           challenge:
             "A Porsche dealership needed a premium catalogue website with detailed car pages and easy content management.",
@@ -144,8 +144,8 @@ export const dict = {
             "Premium responsive UI",
           ],
           result: "Production website for the dealership.",
-        }
-{
+        },
+        {
           title: "SENTRY",
           challenge:
             "Security teams drown in signals: leaked keys, suspicious logins, misconfigured infrastructure — scattered across scanners, identity providers and cloud logs. Nobody can answer: what's our security posture right now and what needs to be done first.",
@@ -158,8 +158,8 @@ export const dict = {
             "SVG charts, zero libraries",
           ],
           result: "A calm, information-dense security operations concept with real state changes on every screen.",
-        }
-{
+        },
+        {
           title: "PVR Media Reviews",
           challenge:
             "WooCommerce review systems usually process video uploads server-side — slow, expensive and heavy for the store hosting.",
@@ -172,7 +172,8 @@ export const dict = {
             "SEO landing pages",
           ],
           result: "Production-ready commercial WooCommerce plugin.",
-        } ,
+        },
+      ],
     },
     lab: {
       eyebrow: "Lab",
@@ -344,8 +345,8 @@ export const dict = {
             "~110 KB gzip",
           ],
           result: "Быстрый, доступный и визуально цельный магазин с премиальной подачей на каждом экране.",
-        }
-{
+        },
+        {
           title: "Atelier №7",
           challenge:
             "Архитектурные бюро продают атмосферу, а типовые сайты убивают её шаблонным агентским дизайном — сетки карточек, баннеры, скруглённые кнопки. Цель — сайт, который читается как печатная монография: фотография, воздух, медленный редакционный ритм — и при этом быстрый, адаптивный продукт.",
@@ -358,8 +359,8 @@ export const dict = {
             "Ноль ошибок консоли на 375–1920px",
           ],
           result: "Редакционный сайт, который держит любой вьюпорт и проходит автоматические визуальные проверки.",
-        }
-{
+        },
+        {
           title: "Aquascape Competition Platform",
           challenge:
             "Проведение соревнований по акваскейпу требует прозрачного судейства: много участников, разные критерии, сезоны и двуязычная аудитория.",
@@ -372,8 +373,8 @@ export const dict = {
             "Деплой на Docker",
           ],
           result: "Платформа проводит полноценные сезоны соревнований.",
-        }
-{
+        },
+        {
           title: "Porsche Center Dnipro",
           challenge:
             "Автосалону Porsche нужен был премиальный сайт-каталог с детальными страницами машин и удобным управлением контентом.",
@@ -385,8 +386,8 @@ export const dict = {
             "Премиальный адаптивный UI",
           ],
           result: "Продакшен-сайт автосалона.",
-        }
-{
+        },
+        {
           title: "SENTRY",
           challenge:
             "Команды безопасности тонут в сигналах: утёкшие ключи, подозрительные входы, неверные конфигурации — разбросаны по сканерам, identity-провайдерам и облачным логам. Никто не может ответить: каков наш уровень защиты сейчас и что делать в первую очередь.",
@@ -399,8 +400,8 @@ export const dict = {
             "SVG-графики без библиотек",
           ],
           result: "Спокойный, плотный концепт security-платформы с реальными изменениями состояния на каждом экране.",
-        }
-{
+        },
+        {
           title: "PVR Media Reviews",
           challenge:
             "Системы отзывов WooCommerce обычно обрабатывают видео на сервере — медленно, дорого и тяжело для хостинга магазина.",
@@ -413,7 +414,8 @@ export const dict = {
             "SEO-страницы",
           ],
           result: "Готовый коммерческий плагин для WooCommerce.",
-        } ,
+        },
+      ],
     },
     lab: {
       eyebrow: "Лаборатория",
