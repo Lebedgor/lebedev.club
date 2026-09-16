@@ -18,7 +18,10 @@ export function CaseStudies() {
           const l = t.cases.labels;
           return (
             <Reveal key={meta.project}>
-              <div className={`cs-row${i % 2 === 1 ? " rev" : ""}`}>
+              <div
+                className={`cs-row${i % 2 === 1 ? " rev" : ""}`}
+                id={`case-${String(i + 1).padStart(2, "0")}`}
+              >
                 <div className="cs-text">
                   <div className="num">{String(i + 1).padStart(2, "0")} /</div>
                   <h3 className="cs-title">{item.title}</h3>

@@ -22,7 +22,7 @@ export function Work() {
               <Tilt className="spotlight-card h-full">
                 <a
                   className="project-card h-full"
-                  href={meta.caseStudy ? "#case-studies" : meta.href}
+                  href={meta.caseStudy ? `#case-${meta.num}` : meta.href}
                   target={meta.caseStudy ? undefined : "_blank"}
                   rel="noopener"
                 >
