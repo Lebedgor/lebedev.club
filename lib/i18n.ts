@@ -20,10 +20,20 @@ export const dict = {
     },
     work: {
       eyebrow: "Selected Work",
-      sub: "Real products in production — not concept shots.",
+      sub: "Production work and concept builds — all live and clickable.",
       caseStudy: "View case study",
       viewProduct: "View product",
       items: [
+        {
+          title: "NORDEN",
+          kind: "E-commerce · Concept",
+          description: "A Scandinavian home-goods store where the shop feels like a design magazine.",
+        },
+        {
+          title: "Atelier №7",
+          kind: "Editorial Website · Concept",
+          description: "An editorial-grade website for an architecture studio that reads like a printed monograph.",
+        },
         {
           title: "Aquascape",
           kind: "Competition Platform",
@@ -35,6 +45,11 @@ export const dict = {
           description: "A premium automotive gallery website for a Porsche dealership.",
         },
         {
+          title: "SENTRY",
+          kind: "Security Platform · Concept",
+          description: "A security operations platform concept: incidents, assets, scores and alerts in one calm interface.",
+        },
+        {
           title: "PVR Media Reviews",
           kind: "WooCommerce Plugin",
           description: "A commercial WooCommerce plugin for photo & video product reviews.",
@@ -43,21 +58,6 @@ export const dict = {
           title: "Extended Reviews",
           kind: "OpenCart Module",
           description: "A commercial review system for OpenCart with 800+ sales.",
-        },
-        {
-          title: "Atelier №7",
-          kind: "Editorial Website · Concept",
-          description: "An editorial-grade website for an architecture studio that reads like a printed monograph.",
-        },
-        {
-          title: "NORDEN",
-          kind: "E-commerce · Concept",
-          description: "A Scandinavian home-goods store where the shop feels like a design magazine.",
-        },
-        {
-          title: "SENTRY",
-          kind: "Security Platform · Concept",
-          description: "A security operations platform concept: incidents, assets, scores and alerts in one calm interface.",
         },
       ],
     },
@@ -262,10 +262,20 @@ export const dict = {
     },
     work: {
       eyebrow: "Избранные работы",
-      sub: "Реальные продукты в продакшене — не концепты.",
+      sub: "Продакшен-работы и концепты — всё живое и кликабельное.",
       caseStudy: "Смотреть кейс",
       viewProduct: "Открыть продукт",
       items: [
+        {
+          title: "NORDEN",
+          kind: "Интернет-магазин · Концепт",
+          description: "Магазин скандинавских товаров для дома, где витрина — как дизайн-журнал.",
+        },
+        {
+          title: "Atelier №7",
+          kind: "Редакционный сайт · Концепт",
+          description: "Редакционный сайт для архитектурного бюро, который читается как печатная монография.",
+        },
         {
           title: "Aquascape",
           kind: "Платформа соревнований",
@@ -277,6 +287,11 @@ export const dict = {
           description: "Премиальный сайт-галерея для автосалона Porsche.",
         },
         {
+          title: "SENTRY",
+          kind: "Платформа безопасности · Концепт",
+          description: "Концепт платформы кибербезопасности: инциденты, активы, скоринг и алерты в одном интерфейсе.",
+        },
+        {
           title: "PVR Media Reviews",
           kind: "Плагин WooCommerce",
           description: "Коммерческий WooCommerce-плагин для фото- и видео-отзывов.",
@@ -285,21 +300,6 @@ export const dict = {
           title: "Extended Reviews",
           kind: "Модуль OpenCart",
           description: "Коммерческая система отзывов для OpenCart — 800+ продаж.",
-        },
-        {
-          title: "Atelier №7",
-          kind: "Редакционный сайт · Концепт",
-          description: "Редакционный сайт для архитектурного бюро, который читается как печатная монография.",
-        },
-        {
-          title: "NORDEN",
-          kind: "Интернет-магазин · Концепт",
-          description: "Магазин скандинавских товаров для дома, где витрина — как дизайн-журнал.",
-        },
-        {
-          title: "SENTRY",
-          kind: "Платформа безопасности · Концепт",
-          description: "Концепт платформы кибербезопасности: инциденты, активы, скоринг и алерты в одном интерфейсе.",
         },
       ],
     },
