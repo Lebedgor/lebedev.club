@@ -25,6 +25,11 @@ export const dict = {
       viewProduct: "View product",
       items: [
         {
+          title: "VERTEX",
+          kind: "Scroll-Driven Film · Concept",
+          description: "A cinematic landing for extreme-class chronometers: a 25-second orbital drop film scrubbed by scroll.",
+        },
+        {
           title: "NORDEN",
           kind: "E-commerce · Concept",
           description: "A Scandinavian home-goods store where the shop feels like a design magazine.",
@@ -90,6 +95,20 @@ export const dict = {
         result: "Result",
       },
       items: [
+{
+          title: "VERTEX — The Drop",
+          challenge:
+            "A watch that survives a 24,000 G impact and a 1000-meter dive can't be sold with a spec table — the experience itself had to prove the engineering. The idea: one continuous cinematic drop from orbit to Earth, directed by the user's scroll.",
+          solution:
+            "A single 25-second film (orbit → atmosphere entry → canyon → impact → the surviving watch) scrubbed frame-by-frame by scroll: a telemetric HUD (altitude 408,000 m → 0, velocity, flight phases) and titles synced to the timeline. After landing — a technical breakdown: interactive macro filmstrip carousel with lightbox, spec dossier and an interactive vector model. The core engineering problem — smooth Full HD video scrubbing on mobile — was solved with 960p renders with a keyframe every second frame (H.264, faststart), exponential scrub smoothing, decoder warm-up on first gesture, Lenis on native scroll and full isolation of React re-renders from scroll events (rAF batching, memoized overlays).",
+          highlights: [
+            "Scroll-scrubbed 25s film",
+            "Smooth Full HD scrub on mobile",
+            "Telemetry HUD synced to timeline",
+            "Zero text overflows at 360–768px",
+          ],
+          result: "A cinematic, scroll-directed product film that scrubs smoothly on desktop and mobile, verified by headless layout audits.",
+        },
 {
           title: "NORDEN",
           challenge:
@@ -267,6 +286,11 @@ export const dict = {
       viewProduct: "Открыть продукт",
       items: [
         {
+          title: "VERTEX",
+          kind: "Скролл-фильм · Концепт",
+          description: "Кинематографичный лендинг хронометров экстремального класса: 25-секундный фильм-падение с орбиты, скраббящийся скроллом.",
+        },
+        {
           title: "NORDEN",
           kind: "Интернет-магазин · Концепт",
           description: "Магазин скандинавских товаров для дома, где витрина — как дизайн-журнал.",
@@ -332,6 +356,20 @@ export const dict = {
         result: "Результат",
       },
       items: [
+{
+          title: "VERTEX — The Drop",
+          challenge:
+            "Часы, которые выдерживают удар в 24 000 G и погружение до 1000 метров, нельзя продавать таблицей характеристик — сам опыт должен доказывать инженерию. Идея: один непрерывный кинематографичный спуск с орбиты на Землю, который режиссирует пользователь своим скроллом.",
+          solution:
+            "Один 25-секундный фильм (космос → вход в атмосферу → каньон → удар → уцелевшие часы), скраббящийся покадрово скроллом: телеметрический HUD (высота 408 000 м → 0, скорость, фазы полёта) и титры синхронизированы с таймлайном. После приземления — технический разбор: интерактивная филмстрип-карусель макро-съёмки с лайтбоксом, спецификация досье и интерактивная векторная модель часов. Ключевую инженерную задачу — плавный скраббинг Full HD видео на мобильных — решили комбинацией: рендер 960p с ключевым кадром в каждом втором кадре (H.264, faststart), сглаживание скраба по экспоненте, прогрев декодера первым жестом, Lenis на нативном скролле и полная изоляция React-ре-рендеров от скролл-событий (батчинг в rAF, мемоизированные оверлеи).",
+          highlights: [
+            "Фильм, скраббящийся скроллом",
+            "Плавный Full HD скраб на мобильных",
+            "Телеметрия HUD в синхроне с таймлайном",
+            "0 переполнений текста на 360–768px",
+          ],
+          result: "Кинематографичный фильм-продукт, который режиссируется скроллом и плавно работает на десктопе и мобильных — подтверждено headless-аудитом вёрстки.",
+        },
 {
           title: "NORDEN",
           challenge:

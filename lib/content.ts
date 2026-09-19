@@ -1,6 +1,15 @@
 export const projectsMeta = [
   {
     num: "01",
+    title: "VERTEX",
+    kind: "Scroll-Driven Film · Concept",
+    href: "https://vertex-three-pi.vercel.app/",
+    image: "/images/vertex.jpg",
+    caseStudy: true,
+    tags: ["React 19", "TypeScript", "Tailwind", "Lenis", "Web Audio API"],
+  },
+  {
+    num: "02",
     title: "NORDEN",
     kind: "E-commerce · Concept",
     href: "https://norden-lebedev-labs.vercel.app/",
@@ -9,7 +18,7 @@ export const projectsMeta = [
     tags: ["React", "Tailwind", "Framer Motion", "Vercel"],
   },
   {
-    num: "02",
+    num: "03",
     title: "Atelier №7",
     kind: "Editorial Website · Concept",
     href: "https://atelier-7-lebedev-labs.vercel.app/",
@@ -18,7 +27,7 @@ export const projectsMeta = [
     tags: ["React", "Vite", "Tailwind", "Framer Motion"],
   },
   {
-    num: "03",
+    num: "04",
     title: "Aquascape",
     kind: "Competition Platform",
     href: "https://aquascape.in.ua/en/2025",
@@ -27,7 +36,7 @@ export const projectsMeta = [
     tags: ["React", "Node.js", "PostgreSQL"],
   },
   {
-    num: "04",
+    num: "05",
     title: "Porsche Center Dnipro",
     kind: "Automotive Platform",
     href: "https://porschednipro.com.ua/",
@@ -36,7 +45,7 @@ export const projectsMeta = [
     tags: ["React", "Node.js", "MySQL"],
   },
   {
-    num: "05",
+    num: "06",
     title: "SENTRY",
     kind: "Security Platform · Concept",
     href: "https://sentry-lebedev-labs.vercel.app/",
@@ -45,7 +54,7 @@ export const projectsMeta = [
     tags: ["React", "TypeScript", "Tailwind", "SVG Charts"],
   },
   {
-    num: "06",
+    num: "07",
     title: "PVR Media Reviews",
     kind: "WooCommerce Plugin",
     href: "https://pv-reviews.site/",
@@ -54,7 +63,7 @@ export const projectsMeta = [
     tags: ["WordPress", "WooCommerce", "PHP", "JavaScript"],
   },
   {
-    num: "07",
+    num: "08",
     title: "Extended Reviews",
     kind: "OpenCart Module",
     href: "https://extended-reviews.com/ex_reviews_v5_en.html",
@@ -66,6 +75,12 @@ export const projectsMeta = [
 ] as const;
 
 export const caseStudiesMeta = [
+  {
+    project: "vertex",
+    href: "https://vertex-three-pi.vercel.app/",
+    image: "/images/vertex-2.jpg",
+    builtWith: "React 19 · Vite 6 · TypeScript · Tailwind CSS 3.4 · Lenis · HTML5 Video scrubbing · Web Audio API · FFmpeg · Vercel",
+  },
   {
     project: "norden",
     href: "https://norden-lebedev-labs.vercel.app/",

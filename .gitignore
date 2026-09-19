@@ -8,4 +8,5 @@ next-env.d.ts
 
 # тяжёлые оригиналы изображений (используются копии в public/images)
 assets/
+VERTEX/
 .vercel
